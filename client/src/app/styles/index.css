@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;600;700&family=Nunito+Sans:wght@400;600;700&family=Patrick+Hand&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-ink/20;
+  }
+
+  body {
+    @apply bg-paper text-ink font-primary antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-primary text-ink;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 font-button 
+           bg-notebook-yellow text-ink rounded-hand border-hand border-ink 
+           shadow-paper hover:shadow-paper-hover transition-all duration-normal
+           focus:outline-none focus:ring-2 focus:ring-notebook-blue focus:ring-offset-2;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-6 py-3 font-button 
+           bg-paper text-ink rounded-hand border-hand border-ink 
+           shadow-paper hover:shadow-paper-hover transition-all duration-normal
+           focus:outline-none focus:ring-2 focus:ring-notebook-blue focus:ring-offset-2;
+  }
+
+  .card-hand {
+    @apply bg-paper-page rounded-hand-lg border-hand border-ink 
+           shadow-paper p-6 transition-shadow duration-normal;
+  }
+
+  .input-hand {
+    @apply w-full px-4 py-3 font-body bg-paper-page rounded-hand 
+           border-hand border-ink text-ink placeholder-ink/50
+           focus:outline-none focus:ring-2 focus:ring-notebook-blue 
+           focus:border-transparent transition-all duration-fast;
+  }
+
+  .badge-hand {
+    @apply inline-flex items-center px-3 py-1 font-caption rounded-hand 
+           border-2 border-ink bg-notebook-yellow text-ink text-sm;
+  }
+
+  .chip-hand {
+    @apply inline-flex items-center px-4 py-2 font-caption rounded-full 
+           border-2 border-ink bg-paper text-ink text-sm 
+           hover:bg-notebook-yellow/30 transition-colors duration-fast cursor-pointer;
+  }
+
+  .paper-container {
+    @apply bg-paper-page rounded-hand-xl border-hand border-ink 
+           shadow-paper p-8 relative;
+  }
+
+  .notebook-page {
+    @apply bg-paper-page rounded-sm border-l-4 border-notebook-blue/30 
+           shadow-paper p-6 relative;
+  }
+
+  .sticker {
+    @apply inline-flex items-center justify-center rounded-hand-lg 
+           border-hand border-ink shadow-sticker 
+           hover:shadow-sticker-hover transition-all duration-normal;
+  }
+}
+
+@layer utilities {
+  .hand-rotate-left {
+    transform: rotate(-2deg);
+  }
+
+  .hand-rotate-right {
+    transform: rotate(2deg);
+  }
+
+  .hand-rotate-random {
+    transform: rotate(calc(var(--rotation) * 1deg));
+  }
+}
