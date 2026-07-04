@@ -9,7 +9,7 @@ export const Modal: React.FC<ModalProps> = ({
   onClose,
   title,
   children,
-  footer,
+  footer: footerProp,
 }) => {
   return (
     <AnimatePresence>
@@ -52,9 +52,9 @@ export const Modal: React.FC<ModalProps> = ({
               </div>
               
               {/* Footer */}
-              {footer && (
+              {footerProp && (
                 <div className="flex justify-end gap-3">
-                  {footer}
+                  {footerProp}
                 </div>
               )}
             </motion.div>
@@ -73,7 +73,6 @@ export const Dialog: React.FC<ModalProps> = ({
   onClose,
   title,
   children,
-  footer,
 }) => {
   return (
     <AnimatePresence>

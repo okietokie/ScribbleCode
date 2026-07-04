@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion, HTMLMotionProps } from 'framer-motion';
+import { motion, TargetAndTransition } from 'framer-motion';
 import { CardProps } from '@/types';
 import { useAnimation } from '@/hooks';
 
@@ -10,7 +10,7 @@ export const Card: React.FC<CardProps> = ({
   hoverable = false,
 }) => {
   const animations = useAnimation();
-  const hoverLift = animations.hoverLift();
+  const hoverLift = animations.hoverLift() as TargetAndTransition;
 
   const baseStyles = 'bg-paper-page rounded-hand-lg border-hand border-ink shadow-paper p-6 transition-all duration-normal';
   const hoverStyles = hoverable ? 'cursor-pointer hover:shadow-paper-hover' : '';
@@ -19,7 +19,7 @@ export const Card: React.FC<CardProps> = ({
     return (
       <motion.div
         className={`${baseStyles} ${hoverStyles} ${className}`}
-        whileHover={hoverable || onClick ? hoverLift.animate : undefined}
+        whileHover={hoverable || onClick ? hoverLift : undefined}
         whileTap={hoverable || onClick ? { scale: 0.98 } : undefined}
         onClick={onClick}
       >
@@ -140,8 +140,16 @@ export const WorldCard: React.FC<CardProps & { color?: string }> = ({
   color = 'notebook-blue',
   ...props 
 }) => {
+  const colorMap: Record<string, string> = {
+    'notebook-blue': 'bg-notebook-blue',
+    'notebook-yellow': 'bg-notebook-yellow',
+    'notebook-green': 'bg-notebook-green',
+    'notebook-purple': 'bg-notebook-purple',
+    'notebook-red': 'bg-notebook-red',
+  };
+  
   return (
-    <Card className={`${className}`} style={{ backgroundColor: `var(--${color})` }} {...props}>
+    <Card className={`${className} ${colorMap[color] || colorMap['notebook-blue']}`} {...props}>
       {children}
     </Card>
   );

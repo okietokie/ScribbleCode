@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion, TargetAndTransition } from 'framer-motion';
 import { BadgeProps } from '@/types';
 import { useAnimation } from '@/hooks';
 
@@ -10,7 +10,7 @@ export const Badge: React.FC<BadgeProps> = ({
   className = '',
 }) => {
   const animations = useAnimation();
-  const stickerPop = animations.stickerPop();
+  const stickerPop = animations.stickerPop() as TargetAndTransition;
 
   const baseStyles = 'inline-flex items-center justify-center font-caption rounded-hand border-2 border-ink';
   

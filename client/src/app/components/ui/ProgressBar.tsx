@@ -52,8 +52,6 @@ export const XPProgress: React.FC<{ current: number; max: number; level: number 
   max,
   level 
 }) => {
-  const percentage = (current / max) * 100;
-  
   return (
     <div className="w-full">
       <div className="flex justify-between items-center mb-1">

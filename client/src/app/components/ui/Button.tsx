@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion, HTMLMotionProps } from 'framer-motion';
+import { motion, HTMLMotionProps, TargetAndTransition } from 'framer-motion';
 import { ButtonProps } from '@/types';
 import { useAnimation } from '@/hooks';
 import { Loader2 } from 'lucide-react';
@@ -16,7 +16,7 @@ export const Button: React.FC<ButtonProps> = ({
   ...props
 }) => {
   const animations = useAnimation();
-  const hoverLift = animations.hoverLift();
+  const hoverLift = animations.hoverLift() as TargetAndTransition;
 
   const baseStyles = 'inline-flex items-center justify-center font-button rounded-hand border-hand border-ink transition-all duration-normal focus:outline-none focus:ring-2 focus:ring-notebook-blue focus:ring-offset-2';
 
@@ -39,7 +39,7 @@ export const Button: React.FC<ButtonProps> = ({
     <motion.button
       className={`${baseStyles} ${variantStyles[variant]} ${sizeStyles[size]} ${className}`}
       disabled={disabled || isLoading}
-      whileHover={!disabled && !isLoading ? hoverLift.animate : undefined}
+      whileHover={!disabled && !isLoading ? hoverLift : undefined}
       whileTap={!disabled && !isLoading ? { scale: 0.95 } : undefined}
       {...(props as HTMLMotionProps<'button'>)}
     >

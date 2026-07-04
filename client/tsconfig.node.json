@@ -10,8 +10,15 @@
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx"
+    "moduleDetection": "force",
+    "jsx": "react-jsx",
+    
+    /* Node types */
+    "types": ["node"],
+    "composite": true,
+    "emitDeclarationOnly": true,
+    "declaration": true,
+    "outDir": "./dist"
   },
   "include": ["vite.config.ts"]
 }
