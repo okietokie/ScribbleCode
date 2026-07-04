@@ -1,0 +1,627 @@
+{
+  "id": "js-world-1-basics-map",
+  "worldId": "js-world-1-basics",
+  "mapTitle": "JavaScript Forest",
+  "mapDescription": "Explore the magical forest where JavaScript concepts come to life. From Variables Meadow to Functions Grove, your adventure awaits!",
+  "backgroundStyle": "paper",
+  "colorPalette": {
+    "primary": "#4A90D9",
+    "secondary": "#7CB342",
+    "accent": "#FFB74D",
+    "locked": "#BDBDBD",
+    "completed": "#81C784",
+    "current": "#64B5F6"
+  },
+  "camera": {
+    "initialZoom": 1,
+    "minZoom": 0.5,
+    "maxZoom": 2.5,
+    "initialCenter": {
+      "x": 600,
+      "y": 400
+    },
+    "focusOnCurrent": true
+  },
+  "overlay": {
+    "compass": {
+      "enabled": true,
+      "position": "top-right"
+    },
+    "border": {
+      "style": "notebook",
+      "thickness": 20
+    }
+  },
+  "regions": [
+    {
+      "id": "region-variables-meadow",
+      "title": "Variables Meadow",
+      "description": "Where variables grow like wildflowers",
+      "order": 1,
+      "theme": "meadow",
+      "backgroundColor": "#E8F5E9",
+      "bounds": {
+        "minX": 100,
+        "minY": 100,
+        "maxX": 400,
+        "maxY": 350
+      },
+      "nodeIds": ["node-intro-variables", "node-data-types", "node-type-conversion"],
+      "roads": [
+        {"from": "node-intro-variables", "to": "node-data-types", "style": "path"},
+        {"from": "node-data-types", "to": "node-type-conversion", "style": "path"}
+      ],
+      "decorations": [
+        {"type": "tree", "position": {"x": 120, "y": 150}, "scale": 1.2, "animation": "sway"},
+        {"type": "flower", "position": {"x": 180, "y": 280}, "scale": 0.8},
+        {"type": "flower", "position": {"x": 220, "y": 300}, "scale": 0.9},
+        {"type": "bush", "position": {"x": 350, "y": 200}, "scale": 1.0},
+        {"type": "cloud", "position": {"x": 200, "y": 80}, "scale": 1.5, "animation": "drift"},
+        {"type": "bird", "position": {"x": 250, "y": 60}, "scale": 0.6, "animation": "float"}
+      ],
+      "ambientEffects": ["falling-leaves"],
+      "celebrationType": "confetti",
+      "landmark": {
+        "type": "windmill",
+        "position": {"x": 380, "y": 120},
+        "scale": 1.5
+      }
+    },
+    {
+      "id": "region-functions-grove",
+      "title": "Functions Grove",
+      "description": "The mystical grove where functions bloom",
+      "order": 2,
+      "theme": "forest",
+      "backgroundColor": "#C8E6C9",
+      "bounds": {
+        "minX": 450,
+        "minY": 100,
+        "maxX": 750,
+        "maxY": 350
+      },
+      "nodeIds": ["node-intro-functions", "node-parameters", "node-return-values", "node-scope"],
+      "roads": [
+        {"from": "node-intro-functions", "to": "node-parameters", "style": "path"},
+        {"from": "node-parameters", "to": "node-return-values", "style": "path"},
+        {"from": "node-return-values", "to": "node-scope", "style": "path"}
+      ],
+      "decorations": [
+        {"type": "tree", "position": {"x": 480, "y": 140}, "scale": 1.3, "animation": "sway"},
+        {"type": "tree", "position": {"x": 520, "y": 280}, "scale": 1.1, "animation": "sway"},
+        {"type": "tree", "position": {"x": 700, "y": 180}, "scale": 1.4, "animation": "sway"},
+        {"type": "bush", "position": {"x": 600, "y": 320}, "scale": 1.0},
+        {"type": "mushroom", "position": {"x": 550, "y": 250}, "scale": 0.7},
+        {"type": "cloud", "position": {"x": 600, "y": 70}, "scale": 1.2, "animation": "drift"}
+      ],
+      "ambientEffects": ["fireflies"],
+      "celebrationType": "stamp",
+      "landmark": {
+        "type": "treehouse",
+        "position": {"x": 720, "y": 140},
+        "scale": 1.6
+      }
+    },
+    {
+      "id": "region-arrays-river",
+      "title": "Arrays River",
+      "description": "Follow the flowing river of arrays",
+      "order": 3,
+      "theme": "river",
+      "backgroundColor": "#B3E5FC",
+      "bounds": {
+        "minX": 800,
+        "minY": 100,
+        "maxX": 1100,
+        "maxY": 350
+      },
+      "nodeIds": ["node-intro-arrays", "node-array-methods", "node-looping-arrays"],
+      "roads": [
+        {"from": "node-intro-arrays", "to": "node-array-methods", "style": "bridge"},
+        {"from": "node-array-methods", "to": "node-looping-arrays", "style": "path"}
+      ],
+      "decorations": [
+        {"type": "water", "position": {"x": 850, "y": 280}, "scale": 2.0},
+        {"type": "rock", "position": {"x": 900, "y": 300}, "scale": 0.9},
+        {"type": "rock", "position": {"x": 1050, "y": 290}, "scale": 1.1},
+        {"type": "tree", "position": {"x": 820, "y": 150}, "scale": 1.2, "animation": "sway"},
+        {"type": "fish", "position": {"x": 950, "y": 310}, "scale": 0.5, "animation": "drift"},
+        {"type": "cloud", "position": {"x": 950, "y": 60}, "scale": 1.3, "animation": "drift"}
+      ],
+      "ambientEffects": ["flowing-water"],
+      "celebrationType": "sticker",
+      "landmark": {
+        "type": "bridge",
+        "position": {"x": 1080, "y": 200},
+        "scale": 1.4
+      }
+    },
+    {
+      "id": "region-objects-village",
+      "title": "Objects Village",
+      "description": "A cozy village of objects and properties",
+      "order": 4,
+      "theme": "village",
+      "backgroundColor": "#FFF9C4",
+      "bounds": {
+        "minX": 100,
+        "minY": 400,
+        "maxX": 400,
+        "maxY": 650
+      },
+      "nodeIds": ["node-intro-objects", "node-object-methods", "node-this-keyword"],
+      "roads": [
+        {"from": "node-intro-objects", "to": "node-object-methods", "style": "path"},
+        {"from": "node-object-methods", "to": "node-this-keyword", "style": "road"}
+      ],
+      "decorations": [
+        {"type": "tree", "position": {"x": 130, "y": 450}, "scale": 1.1, "animation": "sway"},
+        {"type": "fence", "position": {"x": 200, "y": 620}, "scale": 1.5},
+        {"type": "flower", "position": {"x": 300, "y": 580}, "scale": 0.7},
+        {"type": "sign", "position": {"x": 380, "y": 420}, "scale": 0.8},
+        {"type": "cloud", "position": {"x": 250, "y": 380}, "scale": 1.4, "animation": "drift"}
+      ],
+      "ambientEffects": [],
+      "celebrationType": "page-color",
+      "landmark": {
+        "type": "mansion",
+        "position": {"x": 360, "y": 480},
+        "scale": 1.8
+      }
+    },
+    {
+      "id": "region-es6-mountains",
+      "title": "ES6 Mountains",
+      "description": "Scale the peaks of modern JavaScript",
+      "order": 5,
+      "theme": "mountains",
+      "backgroundColor": "#E1BEE7",
+      "bounds": {
+        "minX": 450,
+        "minY": 400,
+        "maxX": 750,
+        "maxY": 650
+      },
+      "nodeIds": ["node-let-const", "node-arrow-functions", "node-destructuring", "node-template-literals"],
+      "roads": [
+        {"from": "node-let-const", "to": "node-arrow-functions", "style": "stairs"},
+        {"from": "node-arrow-functions", "to": "node-destructuring", "style": "path"},
+        {"from": "node-destructuring", "to": "node-template-literals", "style": "path"}
+      ],
+      "decorations": [
+        {"type": "tree", "position": {"x": 480, "y": 500}, "scale": 0.9, "animation": "sway"},
+        {"type": "rock", "position": {"x": 550, "y": 600}, "scale": 1.3},
+        {"type": "rock", "position": {"x": 650, "y": 580}, "scale": 1.5},
+        {"type": "cloud", "position": {"x": 500, "y": 380}, "scale": 1.6, "animation": "drift"},
+        {"type": "cloud", "position": {"x": 650, "y": 360}, "scale": 1.4, "animation": "drift"},
+        {"type": "bird", "position": {"x": 600, "y": 350}, "scale": 0.5, "animation": "float"}
+      ],
+      "ambientEffects": ["moving-clouds"],
+      "celebrationType": "fireworks",
+      "landmark": {
+        "type": "tower",
+        "position": {"x": 720, "y": 450},
+        "scale": 1.7
+      }
+    },
+    {
+      "id": "region-modules-library",
+      "title": "Modules Library",
+      "description": "The ancient library of modules and imports",
+      "order": 6,
+      "theme": "library",
+      "backgroundColor": "#BCAAA4",
+      "bounds": {
+        "minX": 800,
+        "minY": 400,
+        "maxX": 1100,
+        "maxY": 650
+      },
+      "nodeIds": ["node-import-export", "node-default-exports", "node-named-exports"],
+      "roads": [
+        {"from": "node-import-export", "to": "node-default-exports", "style": "path"},
+        {"from": "node-default-exports", "to": "node-named-exports", "style": "path"}
+      ],
+      "decorations": [
+        {"type": "book", "position": {"x": 850, "y": 550}, "scale": 0.8},
+        {"type": "book", "position": {"x": 880, "y": 560}, "scale": 0.7},
+        {"type": "scroll", "position": {"x": 1050, "y": 520}, "scale": 0.9},
+        {"type": "candle", "position": {"x": 950, "y": 600}, "scale": 0.6, "animation": "pulse"},
+        {"type": "cloud", "position": {"x": 950, "y": 380}, "scale": 1.2, "animation": "drift"}
+      ],
+      "ambientEffects": [],
+      "celebrationType": "stamp",
+      "landmark": {
+        "type": "library",
+        "position": {"x": 1050, "y": 480},
+        "scale": 2.0
+      }
+    }
+  ],
+  "nodes": [
+    {
+      "id": "node-intro-variables",
+      "title": "Variable Vault",
+      "description": "Enter the vault where variables are stored",
+      "lessonId": "js-lesson-1-1-intro-variables",
+      "position": {"x": 150, "y": 200},
+      "buildingType": "cabin",
+      "xpReward": 50,
+      "estimatedTimeMinutes": 10,
+      "difficulty": "beginner",
+      "tooltipDescription": "Learn what variables are and how to declare them",
+      "scale": 1.0,
+      "rotation": -5
+    },
+    {
+      "id": "node-data-types",
+      "title": "Data Type Garden",
+      "description": "Discover different types of data",
+      "lessonId": "js-lesson-1-2-data-types",
+      "position": {"x": 250, "y": 220},
+      "buildingType": "hut",
+      "xpReward": 60,
+      "estimatedTimeMinutes": 12,
+      "difficulty": "beginner",
+      "tooltipDescription": "Explore strings, numbers, booleans, and more",
+      "scale": 1.1,
+      "rotation": 3
+    },
+    {
+      "id": "node-type-conversion",
+      "title": "Conversion Workshop",
+      "description": "Master type conversion techniques",
+      "lessonId": "js-lesson-1-3-type-conversion",
+      "position": {"x": 350, "y": 240},
+      "buildingType": "workshop",
+      "xpReward": 70,
+      "estimatedTimeMinutes": 15,
+      "difficulty": "beginner",
+      "tooltipDescription": "Learn to convert between different data types",
+      "scale": 1.2,
+      "rotation": 0
+    },
+    {
+      "id": "node-intro-functions",
+      "title": "Function Fountain",
+      "description": "Where functions spring to life",
+      "lessonId": "js-lesson-2-1-intro-functions",
+      "position": {"x": 500, "y": 200},
+      "buildingType": "treehouse",
+      "xpReward": 60,
+      "estimatedTimeMinutes": 12,
+      "difficulty": "beginner",
+      "tooltipDescription": "Learn to create and call functions",
+      "scale": 1.3,
+      "rotation": 2
+    },
+    {
+      "id": "node-parameters",
+      "title": "Parameter Pass",
+      "description": "Pass values into functions",
+      "lessonId": "js-lesson-2-2-parameters",
+      "position": {"x": 580, "y": 220},
+      "buildingType": "bridge",
+      "xpReward": 70,
+      "estimatedTimeMinutes": 15,
+      "difficulty": "beginner",
+      "tooltipDescription": "Understand function parameters and arguments",
+      "scale": 1.0,
+      "rotation": 0
+    },
+    {
+      "id": "node-return-values",
+      "title": "Return Tower",
+      "description": "Return values from functions",
+      "lessonId": "js-lesson-2-3-return-values",
+      "position": {"x": 660, "y": 200},
+      "buildingType": "tower",
+      "xpReward": 80,
+      "estimatedTimeMinutes": 15,
+      "difficulty": "intermediate",
+      "tooltipDescription": "Master return statements and function output",
+      "scale": 1.4,
+      "rotation": -2
+    },
+    {
+      "id": "node-scope",
+      "title": "Scope Sanctuary",
+      "description": "Understand variable scope",
+      "lessonId": "js-lesson-2-4-scope",
+      "position": {"x": 720, "y": 240},
+      "buildingType": "temple",
+      "xpReward": 90,
+      "estimatedTimeMinutes": 18,
+      "difficulty": "intermediate",
+      "tooltipDescription": "Learn about local and global scope",
+      "scale": 1.5,
+      "rotation": 0
+    },
+    {
+      "id": "node-intro-arrays",
+      "title": "Array Falls",
+      "description": "Introduction to arrays",
+      "lessonId": "js-lesson-3-1-intro-arrays",
+      "position": {"x": 850, "y": 200},
+      "buildingType": "cabin",
+      "xpReward": 60,
+      "estimatedTimeMinutes": 12,
+      "difficulty": "beginner",
+      "tooltipDescription": "Learn what arrays are and how to create them",
+      "scale": 1.1,
+      "rotation": 5
+    },
+    {
+      "id": "node-array-methods",
+      "title": "Methods Mill",
+      "description": "Common array methods",
+      "lessonId": "js-lesson-3-2-array-methods",
+      "position": {"x": 950, "y": 220},
+      "buildingType": "windmill",
+      "xpReward": 80,
+      "estimatedTimeMinutes": 18,
+      "difficulty": "intermediate",
+      "tooltipDescription": "Master push, pop, map, filter, and reduce",
+      "scale": 1.4,
+      "rotation": 0
+    },
+    {
+      "id": "node-looping-arrays",
+      "title": "Loop Lagoon",
+      "description": "Iterate through arrays",
+      "lessonId": "js-lesson-3-3-looping-arrays",
+      "position": {"x": 1050, "y": 200},
+      "buildingType": "hut",
+      "xpReward": 80,
+      "estimatedTimeMinutes": 16,
+      "difficulty": "intermediate",
+      "tooltipDescription": "Learn forEach, for...of, and other iteration methods",
+      "scale": 1.2,
+      "rotation": -3
+    },
+    {
+      "id": "node-intro-objects",
+      "title": "Object Cottage",
+      "description": "Introduction to objects",
+      "lessonId": "js-lesson-4-1-intro-objects",
+      "position": {"x": 150, "y": 500},
+      "buildingType": "cabin",
+      "xpReward": 60,
+      "estimatedTimeMinutes": 12,
+      "difficulty": "beginner",
+      "tooltipDescription": "Learn about object literals and properties",
+      "scale": 1.1,
+      "rotation": 0
+    },
+    {
+      "id": "node-object-methods",
+      "title": "Methods Manor",
+      "description": "Object methods and this",
+      "lessonId": "js-lesson-4-2-object-methods",
+      "position": {"x": 250, "y": 520},
+      "buildingType": "mansion",
+      "xpReward": 80,
+      "estimatedTimeMinutes": 16,
+      "difficulty": "intermediate",
+      "tooltipDescription": "Add functions to objects as methods",
+      "scale": 1.5,
+      "rotation": 2
+    },
+    {
+      "id": "node-this-keyword",
+      "title": "This Temple",
+      "description": "Master the this keyword",
+      "lessonId": "js-lesson-4-3-this-keyword",
+      "position": {"x": 350, "y": 540},
+      "buildingType": "temple",
+      "xpReward": 100,
+      "estimatedTimeMinutes": 20,
+      "difficulty": "advanced",
+      "tooltipDescription": "Understand how this works in different contexts",
+      "scale": 1.6,
+      "rotation": 0
+    },
+    {
+      "id": "node-let-const",
+      "title": "Declaration Peak",
+      "description": "Modern variable declarations",
+      "lessonId": "js-lesson-5-1-let-const",
+      "position": {"x": 500, "y": 500},
+      "buildingType": "monument",
+      "xpReward": 50,
+      "estimatedTimeMinutes": 10,
+      "difficulty": "beginner",
+      "tooltipDescription": "Learn the difference between let and const",
+      "scale": 1.3,
+      "rotation": -2
+    },
+    {
+      "id": "node-arrow-functions",
+      "title": "Arrow Arch",
+      "description": "Arrow function syntax",
+      "lessonId": "js-lesson-5-2-arrow-functions",
+      "position": {"x": 580, "y": 520},
+      "buildingType": "arch",
+      "xpReward": 70,
+      "estimatedTimeMinutes": 14,
+      "difficulty": "intermediate",
+      "tooltipDescription": "Write concise arrow functions",
+      "scale": 1.2,
+      "rotation": 0
+    },
+    {
+      "id": "node-destructuring",
+      "title": "Destructure Den",
+      "description": "Destructuring assignment",
+      "lessonId": "js-lesson-5-3-destructuring",
+      "position": {"x": 660, "y": 500},
+      "buildingType": "cave",
+      "xpReward": 80,
+      "estimatedTimeMinutes": 16,
+      "difficulty": "intermediate",
+      "tooltipDescription": "Extract values from arrays and objects",
+      "scale": 1.1,
+      "rotation": 3
+    },
+    {
+      "id": "node-template-literals",
+      "title": "Template Tower",
+      "description": "Template literals and string interpolation",
+      "lessonId": "js-lesson-5-4-template-literals",
+      "position": {"x": 720, "y": 540},
+      "buildingType": "tower",
+      "xpReward": 60,
+      "estimatedTimeMinutes": 12,
+      "difficulty": "beginner",
+      "tooltipDescription": "Use backticks for dynamic strings",
+      "scale": 1.4,
+      "rotation": 0
+    },
+    {
+      "id": "node-import-export",
+      "title": "Import Gate",
+      "description": "Module system introduction",
+      "lessonId": "js-lesson-6-1-import-export",
+      "position": {"x": 850, "y": 500},
+      "buildingType": "gate",
+      "xpReward": 70,
+      "estimatedTimeMinutes": 14,
+      "difficulty": "intermediate",
+      "tooltipDescription": "Learn the basics of ES6 modules",
+      "scale": 1.3,
+      "rotation": 0
+    },
+    {
+      "id": "node-default-exports",
+      "title": "Default Hall",
+      "description": "Default exports",
+      "lessonId": "js-lesson-6-2-default-exports",
+      "position": {"x": 950, "y": 520},
+      "buildingType": "library",
+      "xpReward": 70,
+      "estimatedTimeMinutes": 12,
+      "difficulty": "intermediate",
+      "tooltipDescription": "Export and import default values",
+      "scale": 1.2,
+      "rotation": -2
+    },
+    {
+      "id": "node-named-exports",
+      "title": "Named Archive",
+      "description": "Named exports",
+      "lessonId": "js-lesson-6-3-named-exports",
+      "position": {"x": 1050, "y": 500},
+      "buildingType": "library",
+      "xpReward": 80,
+      "estimatedTimeMinutes": 15,
+      "difficulty": "intermediate",
+      "tooltipDescription": "Export and import multiple named values",
+      "scale": 1.3,
+      "rotation": 0
+    }
+  ],
+  "gates": [
+    {
+      "id": "gate-meadow-to-grove",
+      "name": "Forest Entrance",
+      "position": {"x": 420, "y": 220},
+      "connectsTo": ["region-variables-meadow", "region-functions-grove"],
+      "requirements": {
+        "completedNodes": 3
+      },
+      "appearance": {
+        "type": "arch",
+        "style": "vine-covered"
+      }
+    },
+    {
+      "id": "gate-grove-to-river",
+      "name": "River Crossing",
+      "position": {"x": 770, "y": 220},
+      "connectsTo": ["region-functions-grove", "region-arrays-river"],
+      "requirements": {
+        "completedNodes": 4
+      },
+      "appearance": {
+        "type": "bridge",
+        "style": "wooden"
+      }
+    },
+    {
+      "id": "gate-river-to-village",
+      "name": "Village Path",
+      "position": {"x": 600, "y": 380},
+      "connectsTo": ["region-arrays-river", "region-objects-village"],
+      "requirements": {
+        "completedNodes": 3
+      },
+      "appearance": {
+        "type": "checkpoint",
+        "style": "signpost"
+      }
+    },
+    {
+      "id": "gate-village-to-mountains",
+      "name": "Mountain Trail",
+      "position": {"x": 420, "y": 520},
+      "connectsTo": ["region-objects-village", "region-es6-mountains"],
+      "requirements": {
+        "completedNodes": 3
+      },
+      "appearance": {
+        "type": "arch",
+        "style": "stone"
+      }
+    },
+    {
+      "id": "gate-mountains-to-library",
+      "name": "Library Doors",
+      "position": {"x": 770, "y": 520},
+      "connectsTo": ["region-es6-mountains", "region-modules-library"],
+      "requirements": {
+        "completedNodes": 4
+      },
+      "appearance": {
+        "type": "door",
+        "style": "ornate-wooden"
+      }
+    }
+  ],
+  "bossAreas": [
+    {
+      "id": "boss-js-temple",
+      "title": "JavaScript Temple",
+      "description": "Final boss battle - test all your skills!",
+      "bossLessonId": "js-boss-battle-1",
+      "position": {"x": 1100, "y": 550},
+      "scale": 2.5,
+      "requirements": {
+        "completedRegions": ["region-modules-library"],
+        "minTotalXP": 1200
+      },
+      "appearance": {
+        "buildingType": "castle",
+        "theme": "golden",
+        "effects": ["glow", "particles"]
+      },
+      "rewards": {
+        "xp": {"base": 300, "perfectBonus": 100, "firstAttemptBonus": 50},
+        "coins": {"base": 100},
+        "achievements": ["javascript-master"]
+      }
+    }
+  ],
+  "globalRoads": [
+    {"from": "node-type-conversion", "to": "gate-meadow-to-grove", "style": "path"},
+    {"from": "gate-meadow-to-grove", "to": "node-intro-functions", "style": "path"},
+    {"from": "node-scope", "to": "gate-grove-to-river", "style": "path"},
+    {"from": "gate-grove-to-river", "to": "node-intro-arrays", "style": "bridge"},
+    {"from": "node-looping-arrays", "to": "gate-river-to-village", "style": "path"},
+    {"from": "gate-river-to-village", "to": "node-intro-objects", "style": "path"},
+    {"from": "node-this-keyword", "to": "gate-village-to-mountains", "style": "path"},
+    {"from": "gate-village-to-mountains", "to": "node-let-const", "style": "stairs"},
+    {"from": "node-template-literals", "to": "gate-mountains-to-library", "style": "path"},
+    {"from": "gate-mountains-to-library", "to": "node-import-export", "style": "path"},
+    {"from": "node-named-exports", "to": "boss-js-temple", "style": "portal"}
+  ]
+}
