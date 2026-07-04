@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Github, Twitter, Heart } from 'lucide-react';
+import { Heart } from 'lucide-react';
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -131,7 +131,7 @@ export const Footer = () => {
               className="text-paper/70 hover:text-paper transition-colors"
               aria-label="GitHub"
             >
-              <Github className="w-5 h-5" strokeWidth={1.5} />
+              <span className="text-xl">🐙</span>
             </motion.a>
             <motion.a
               href="#"
@@ -140,7 +140,7 @@ export const Footer = () => {
               className="text-paper/70 hover:text-paper transition-colors"
               aria-label="Twitter"
             >
-              <Twitter className="w-5 h-5" strokeWidth={1.5} />
+              <span className="text-xl">𝕏</span>
             </motion.a>
           </div>
         </motion.div>
