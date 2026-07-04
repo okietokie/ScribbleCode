@@ -1,0 +1,247 @@
+{
+  "id": "js-lesson-1-1-intro-variables",
+  "title": "Introduction to Variables",
+  "description": "Learn what variables are and how to declare them using var, let, and const.",
+  "longDescription": "Variables are fundamental to programming. They allow you to store values, give them meaningful names, and reuse them throughout your code. In JavaScript, you have three options for declaring variables: var, let, and const. Each has its own use cases and rules.",
+  "lessonType": "reading",
+  "difficulty": "beginner",
+  "estimatedTimeMinutes": 10,
+  "learningObjectives": [
+    {
+      "id": "obj-1",
+      "statement": "Understand what a variable is and why we use them",
+      "bloomLevel": "understand",
+      "assessed": true
+    },
+    {
+      "id": "obj-2",
+      "statement": "Declare variables using let and const",
+      "bloomLevel": "apply",
+      "assessed": true
+    },
+    {
+      "id": "obj-3",
+      "statement": "Explain the difference between let and const",
+      "bloomLevel": "understand",
+      "assessed": true
+    }
+  ],
+  "rewards": {
+    "xp": {
+      "base": 50,
+      "perfectBonus": 20,
+      "firstAttemptBonus": 10,
+      "minimum": 25,
+      "maximum": 80
+    },
+    "coins": {
+      "base": 15
+    }
+  },
+  "missionNarrative": {
+    "title": "The Variable Vault",
+    "story": "Deep in the Code Caverns lies the Variable Vault, where ancient programmers stored their most precious data. To enter, you must learn the sacred incantations: let, const, and the forgotten var...",
+    "character": "Professor Syntax",
+    "characterAvatar": "/assets/characters/professor-syntax.png"
+  },
+  "sections": [
+    {
+      "type": "text",
+      "id": "intro-text",
+      "title": "What Are Variables?",
+      "content": "Imagine you're packing for a trip. You wouldn't just throw everything into one big pile, right? You'd use labeled boxes - one for clothes, one for toiletries, one for electronics.\n\n**Variables work the same way!** They're labeled containers that hold information in your program."
+    },
+    {
+      "type": "code",
+      "id": "example-declaration",
+      "title": "Declaring Variables",
+      "content": "// Using let (can be reassigned)\nlet playerName = \"Hero\";\nlet playerLevel = 1;\n\n// Using const (cannot be reassigned)\nconst GAME_TITLE = \"Adventure Quest\";\nconst MAX_LIVES = 3;\n\n// Using var (old way, function-scoped)\nvar oldStyle = \"avoid this\";",
+      "language": "javascript",
+      "showLineNumbers": true,
+      "highlightedLines": [2, 6]
+    },
+    {
+      "type": "callout",
+      "id": "tip-let-const",
+      "title": "Pro Tip",
+      "content": "**Always prefer const** unless you know the value will change. This makes your code more predictable and easier to debug!",
+      "variant": "tip",
+      "icon": "💡"
+    },
+    {
+      "type": "markdown",
+      "id": "rules-section",
+      "title": "Variable Naming Rules",
+      "content": "## Rules for Naming Variables\n\n1. **Must start with** a letter, underscore (_), or dollar sign ($)\n2. **Can contain** letters, numbers, underscores, and dollar signs\n3. **Are case-sensitive** (playerName ≠ PlayerName)\n4. **Cannot use** reserved keywords (if, for, while, etc.)\n\n## Best Practices\n\n- Use **camelCase** for multi-word names\n- Choose **descriptive names** over abbreviations\n- Be **consistent** with your naming style"
+    },
+    {
+      "type": "code",
+      "id": "good-bad-examples",
+      "title": "Good vs Bad Variable Names",
+      "content": "// ❌ Bad - unclear purpose\nlet x = 5;\nlet d = 10;\n\n// ✅ Good - clear purpose\nlet userAge = 25;\nlet daysUntilDeadline = 10;\n\n// ❌ Bad - too verbose\nlet numberOfDaysUntilTheProjectDeadlineIsDue = 10;\n\n// ✅ Good - just right\nlet daysUntilDeadline = 10;",
+      "language": "javascript",
+      "showLineNumbers": false
+    }
+  ],
+  "challenges": [
+    {
+      "id": "challenge-var-1",
+      "title": "Identify Valid Variable Names",
+      "description": "Test your understanding of variable naming rules",
+      "challengeType": "multiple-choice",
+      "question": "Which of these are valid JavaScript variable names?",
+      "instructions": "Select ALL valid variable names from the options below.",
+      "difficulty": "beginner",
+      "estimatedTimeMinutes": 2,
+      "xpReward": 25,
+      "required": true,
+      "allowMultiple": true,
+      "shuffleOptions": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "myVariable",
+          "isCorrect": true,
+          "explanation": "Valid! Uses camelCase correctly."
+        },
+        {
+          "id": "b",
+          "text": "1stPlace",
+          "isCorrect": false,
+          "explanation": "Invalid! Variable names cannot start with a number."
+        },
+        {
+          "id": "c",
+          "text": "_private",
+          "isCorrect": true,
+          "explanation": "Valid! Underscores are allowed at the start."
+        },
+        {
+          "id": "d",
+          "text": "class",
+          "isCorrect": false,
+          "explanation": "Invalid! 'class' is a reserved keyword in JavaScript."
+        },
+        {
+          "id": "e",
+          "text": "$element",
+          "isCorrect": true,
+          "explanation": "Valid! Dollar signs are allowed (often used for DOM elements)."
+        }
+      ],
+      "successFeedback": "Excellent! You've mastered variable naming rules!",
+      "failureFeedback": "Not quite. Review the rules: names can't start with numbers and can't use reserved keywords.",
+      "hints": {
+        "enabled": true,
+        "maxHints": 3,
+        "hints": [
+          {
+            "id": "hint-1",
+            "text": "Think about what characters are allowed at the start of a variable name.",
+            "order": 1
+          },
+          {
+            "id": "hint-2",
+            "text": "Some words have special meaning in JavaScript and can't be used as variable names.",
+            "order": 2
+          },
+          {
+            "id": "hint-3",
+            "text": "Numbers can't be first, but symbols like _ and $ can!",
+            "order": 3
+          }
+        ],
+        "finalExplanation": "Variable names must start with a letter, underscore, or dollar sign. They cannot be reserved keywords like 'class', 'function', 'if', etc."
+      }
+    },
+    {
+      "id": "challenge-var-2",
+      "title": "Choose the Right Declaration",
+      "description": "Decide whether to use let or const for each scenario",
+      "challengeType": "fill-blank",
+      "question": "Complete the code with 'let' or 'const'",
+      "instructions": "Fill in each blank with either 'let' or 'const' based on whether the value should change.",
+      "difficulty": "beginner",
+      "estimatedTimeMinutes": 3,
+      "xpReward": 30,
+      "required": true,
+      "content": "// The value of pi never changes\n{{pi}} PI = 3.14159;\n\n// This counter will increment\n{{counter}} clickCount = 0;\n\n// User's name might be updated\n{{userName}} userName = \"Alice\";\n\n// Tax rate is fixed\n{{tax}} TAX_RATE = 0.08;",
+      "answers": [
+        {
+          "placeholder": "pi",
+          "acceptableAnswers": ["const", "Const", "CONST"],
+          "caseSensitive": false
+        },
+        {
+          "placeholder": "counter",
+          "acceptableAnswers": ["let", "Let", "LET"],
+          "caseSensitive": false
+        },
+        {
+          "placeholder": "userName",
+          "acceptableAnswers": ["let", "Let", "LET"],
+          "caseSensitive": false
+        },
+        {
+          "placeholder": "tax",
+          "acceptableAnswers": ["const", "Const", "CONST"],
+          "caseSensitive": false
+        }
+      ],
+      "successFeedback": "Perfect! You understand when to use let vs const!",
+      "failureFeedback": "Remember: use const for values that won't change, let for values that will.",
+      "hints": {
+        "enabled": true,
+        "hints": [
+          {
+            "id": "hint-1",
+            "text": "Ask yourself: Will this value need to change later?",
+            "order": 1
+          },
+          {
+            "id": "hint-2",
+            "text": "Constants (unchanging values) should use const. Variables (changing values) should use let.",
+            "order": 2
+          }
+        ],
+        "finalExplanation": "PI and TAX_RATE are constants - they never change, so use const. clickCount and userName will change, so use let."
+      }
+    }
+  ],
+  "completionConditions": {
+    "completeAllSections": true,
+    "completeAllChallenges": true,
+    "minAccuracy": 70
+  },
+  "reflectionQuestion": {
+    "question": "In your own words, explain when you would use 'let' versus 'const'. Give an example from your own experience or imagine a scenario.",
+    "type": "open-ended",
+    "required": false,
+    "sampleAnswer": "I would use 'const' for values that should never change, like mathematical constants (PI), configuration values, or fixed settings. I would use 'let' for values that need to change, like counters in loops, user input that can be updated, or temporary calculations."
+  },
+  "nextLessonId": "js-lesson-1-2-data-types",
+  "relatedLessons": ["js-lesson-1-3-type-conversion"],
+  "resources": [
+    {
+      "title": "MDN: Variable Declarations",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#declarations",
+      "type": "documentation",
+      "source": "Mozilla Developer Network"
+    },
+    {
+      "title": "JavaScript.info: Variables",
+      "url": "https://javascript.info/variables",
+      "type": "article",
+      "source": "JavaScript.info",
+      "estimatedTimeMinutes": 15
+    }
+  ],
+  "tags": ["variables", "let", "const", "var", "declaration"],
+  "keywords": ["variable", "declare", "assignment", "scope", "hoisting"],
+  "category": "JavaScript Basics",
+  "version": "1.0.0",
+  "authors": ["Alex Code"],
+  "reviewers": ["Sarah Script"],
+  "createdAt": "2024-01-01T00:00:00Z",
+  "updatedAt": "2024-01-15T00:00:00Z"
+}

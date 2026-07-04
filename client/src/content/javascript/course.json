@@ -1,0 +1,47 @@
+{
+  "id": "javascript-fundamentals",
+  "title": "JavaScript Fundamentals",
+  "slug": "javascript-fundamentals",
+  "description": "Master the fundamentals of JavaScript from variables to functions. Build a strong foundation for modern web development.",
+  "longDescription": "This comprehensive course takes you from zero to hero in JavaScript. You'll learn everything from basic syntax to advanced concepts like closures and asynchronous programming. Each lesson includes interactive challenges, real-world examples, and boss battles to test your skills.",
+  "technology": "javascript",
+  "targetAudience": "Beginner programmers or developers transitioning from other languages",
+  "skillLevel": "beginner",
+  "worldIds": ["js-world-1-basics", "js-world-2-functions", "js-world-3-advanced"],
+  "estimatedDurationHours": 20,
+  "totalXP": 5000,
+  "certificateOffered": true,
+  "certificateName": "JavaScript Fundamentals Certificate",
+  "instructors": [
+    {
+      "name": "Alex Code",
+      "title": "Senior JavaScript Developer",
+      "bio": "10+ years of JavaScript experience, former Google engineer",
+      "avatarUrl": "/assets/instructors/alex-code.png",
+      "socialLinks": {
+        "twitter": "https://twitter.com/alexcode",
+        "github": "https://github.com/alexcode",
+        "website": "https://alexcode.dev"
+      }
+    }
+  ],
+  "coverImage": "/assets/courses/javascript-fundamentals-cover.png",
+  "bannerImage": "/assets/courses/javascript-fundamentals-banner.png",
+  "trailerVideoUrl": "https://www.youtube.com/watch?v=example",
+  "pricing": {
+    "isFree": true
+  },
+  "status": "published",
+  "seoDescription": "Learn JavaScript fundamentals with interactive lessons, challenges, and boss battles. Free comprehensive JavaScript course for beginners.",
+  "seoKeywords": ["javascript", "learn javascript", "javascript course", "programming", "web development", "beginner javascript"],
+  "tags": ["javascript", "fundamentals", "beginner", "web-development", "programming"],
+  "keywords": ["variables", "functions", "objects", "arrays", "loops", "conditionals", "DOM", "events"],
+  "category": "Programming",
+  "version": "1.0.0",
+  "authors": ["Alex Code", "Sarah Script"],
+  "reviewers": ["John Reviewer"],
+  "createdAt": "2024-01-01T00:00:00Z",
+  "updatedAt": "2024-01-15T00:00:00Z",
+  "lastReviewedDate": "2024-01-15T00:00:00Z",
+  "nextReviewDate": "2024-07-15T00:00:00Z"
+}

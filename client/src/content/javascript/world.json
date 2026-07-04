@@ -1,0 +1,24 @@
+{
+  "id": "js-world-1-basics",
+  "title": "JavaScript Basics",
+  "description": "Learn the fundamental building blocks of JavaScript: variables, data types, operators, and control flow.",
+  "longDescription": "Welcome to your first journey into JavaScript! In this world, you'll learn the essential concepts that form the foundation of all JavaScript code. You'll start with variables and data types, then move on to operators and expressions, and finally master control flow with conditionals and loops.",
+  "order": 1,
+  "technology": "javascript",
+  "introduction": {
+    "welcomeMessage": "Welcome, young coder! Your JavaScript adventure begins here!",
+    "lore": "In the land of Scriptoria, you are about to discover the ancient art of JavaScript. The wise developers who came before you have paved the path. Follow their footsteps, complete the challenges, and earn your place among the JavaScript masters!",
+    "featuredImage": "/assets/worlds/js-basics-intro.png"
+  },
+  "chapterIds": ["js-chapter-1-variables", "js-chapter-2-operators", "js-chapter-3-control-flow"],
+  "totalXPAvailable": 1500,
+  "coverImage": "/assets/worlds/js-basics-cover.png",
+  "theme": "blue",
+  "isAvailable": true,
+  "tags": ["javascript", "basics", "variables", "operators", "control-flow"],
+  "keywords": ["var", "let", "const", "strings", "numbers", "booleans", "if", "else", "loops"],
+  "category": "Programming Fundamentals",
+  "version": "1.0.0",
+  "createdAt": "2024-01-01T00:00:00Z",
+  "updatedAt": "2024-01-15T00:00:00Z"
+}

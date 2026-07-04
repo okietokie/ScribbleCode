@@ -1,0 +1,114 @@
+{
+  "badges": [
+    {
+      "id": "badge-hello-world",
+      "name": "Hello World",
+      "description": "Write your first line of code",
+      "iconUrl": "/assets/badges/hello-world.svg",
+      "tier": "bronze",
+      "criteria": "Complete the first lesson in any course",
+      "xpReward": 25,
+      "visibleOnProfile": true,
+      "category": "First Steps"
+    },
+    {
+      "id": "badge-chapter-champion",
+      "name": "Chapter Champion",
+      "description": "Complete all lessons in a chapter",
+      "iconUrl": "/assets/badges/chapter-champion.svg",
+      "tier": "silver",
+      "criteria": "Achieve 100% completion in any chapter",
+      "xpReward": 100,
+      "visibleOnProfile": true,
+      "category": "Progress"
+    },
+    {
+      "id": "badge-world-wanderer",
+      "name": "World Wanderer",
+      "description": "Complete an entire world",
+      "iconUrl": "/assets/badges/world-wanderer.svg",
+      "tier": "gold",
+      "criteria": "Complete all chapters in a world",
+      "xpReward": 250,
+      "visibleOnProfile": true,
+      "category": "Progress"
+    },
+    {
+      "id": "badge-code-warrior",
+      "name": "Code Warrior",
+      "description": "Complete 50 challenges",
+      "iconUrl": "/assets/badges/code-warrior.svg",
+      "tier": "gold",
+      "criteria": "Successfully complete 50 challenges across all lessons",
+      "xpReward": 300,
+      "visibleOnProfile": true,
+      "category": "Challenge"
+    },
+    {
+      "id": "badge-perfectionist",
+      "name": "Perfectionist",
+      "description": "Get 100% on 10 consecutive challenges",
+      "iconUrl": "/assets/badges/perfectionist.svg",
+      "tier": "platinum",
+      "criteria": "Achieve perfect scores on 10 challenges in a row",
+      "xpReward": 500,
+      "visibleOnProfile": true,
+      "category": "Mastery"
+    },
+    {
+      "id": "badge-streak-master",
+      "name": "Streak Master",
+      "description": "Maintain a 30-day learning streak",
+      "iconUrl": "/assets/badges/streak-master.svg",
+      "tier": "diamond",
+      "criteria": "Log in and complete at least one lesson for 30 consecutive days",
+      "xpReward": 1000,
+      "visibleOnProfile": true,
+      "category": "Streak"
+    },
+    {
+      "id": "badge-boss-destroyer",
+      "name": "Boss Destroyer",
+      "description": "Defeat 10 boss battles",
+      "iconUrl": "/assets/badges/boss-destroyer.svg",
+      "tier": "platinum",
+      "criteria": "Successfully defeat 10 boss battles",
+      "xpReward": 750,
+      "visibleOnProfile": true,
+      "category": "Challenge"
+    },
+    {
+      "id": "badge-helpful-hero",
+      "name": "Helpful Hero",
+      "description": "Help 25 other learners",
+      "iconUrl": "/assets/badges/helpful-hero.svg",
+      "tier": "gold",
+      "criteria": "Provide helpful answers or hints to 25 other learners in the community",
+      "xpReward": 400,
+      "visibleOnProfile": true,
+      "category": "Social"
+    },
+    {
+      "id": "badge-speed-runner",
+      "name": "Speed Runner",
+      "description": "Complete 5 lessons in under half the estimated time",
+      "iconUrl": "/assets/badges/speed-runner.svg",
+      "tier": "silver",
+      "criteria": "Finish 5 lessons in less than 50% of the estimated time with good accuracy",
+      "xpReward": 200,
+      "visibleOnProfile": true,
+      "category": "Speed"
+    },
+    {
+      "id": "badge-diverse-learner",
+      "name": "Diverse Learner",
+      "description": "Start lessons in 3 different courses",
+      "iconUrl": "/assets/badges/diverse-learner.svg",
+      "tier": "bronze",
+      "criteria": "Begin at least one lesson in 3 different courses",
+      "xpReward": 75,
+      "visibleOnProfile": true,
+      "category": "Exploration"
+    }
+  ]
+}

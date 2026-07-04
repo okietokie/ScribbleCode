@@ -1,0 +1,158 @@
+{
+  "achievements": [
+    {
+      "id": "achievement-first-chapter",
+      "name": "First Steps",
+      "description": "Complete your first chapter in any course",
+      "icon": "first-steps-badge",
+      "triggers": [
+        {
+          "type": "chapter-complete",
+          "threshold": 1
+        }
+      ],
+      "requireAllTriggers": true,
+      "xpReward": 100,
+      "coinReward": 50,
+      "category": "progress",
+      "isHidden": false,
+      "rarity": "common",
+      "sortOrder": 1
+    },
+    {
+      "id": "achievement-perfect-lesson",
+      "name": "Perfectionist",
+      "description": "Complete a lesson with 100% accuracy on all challenges",
+      "icon": "perfectionist-badge",
+      "triggers": [
+        {
+          "type": "challenge-perfect",
+          "threshold": 100
+        }
+      ],
+      "requireAllTriggers": true,
+      "xpReward": 150,
+      "coinReward": 75,
+      "category": "mastery",
+      "isHidden": false,
+      "rarity": "uncommon",
+      "sortOrder": 2
+    },
+    {
+      "id": "achievement-week-warrior",
+      "name": "Week Warrior",
+      "description": "Maintain a 7-day learning streak",
+      "icon": "week-warrior-badge",
+      "triggers": [
+        {
+          "type": "streak-days",
+          "threshold": 7
+        }
+      ],
+      "requireAllTriggers": true,
+      "xpReward": 500,
+      "coinReward": 200,
+      "category": "streak",
+      "isHidden": false,
+      "rarity": "rare",
+      "sortOrder": 3
+    },
+    {
+      "id": "achievement-speed-demon",
+      "name": "Speed Demon",
+      "description": "Complete a lesson in half the estimated time with perfect accuracy",
+      "icon": "speed-demon-badge",
+      "triggers": [
+        {
+          "type": "speed-run",
+          "threshold": 50
+        }
+      ],
+      "requireAllTriggers": true,
+      "xpReward": 200,
+      "coinReward": 100,
+      "category": "speed",
+      "isHidden": false,
+      "rarity": "rare",
+      "sortOrder": 4
+    },
+    {
+      "id": "achievement-no-hints-hero",
+      "name": "No Hints Hero",
+      "description": "Complete 10 lessons without using any hints",
+      "icon": "no-hints-hero-badge",
+      "triggers": [
+        {
+          "type": "no-hints",
+          "threshold": 10
+        }
+      ],
+      "requireAllTriggers": true,
+      "xpReward": 300,
+      "coinReward": 150,
+      "category": "mastery",
+      "isHidden": false,
+      "rarity": "epic",
+      "sortOrder": 5
+    },
+    {
+      "id": "achievement-boss-slayer",
+      "name": "Boss Slayer",
+      "description": "Defeat your first boss battle",
+      "icon": "boss-slayer-badge",
+      "triggers": [
+        {
+          "type": "complete-boss-battle",
+          "threshold": 1
+        }
+      ],
+      "requireAllTriggers": true,
+      "xpReward": 250,
+      "coinReward": 125,
+      "category": "challenge",
+      "isHidden": false,
+      "rarity": "uncommon",
+      "sortOrder": 6
+    },
+    {
+      "id": "achievement-explorer",
+      "name": "Explorer",
+      "description": "Complete lessons from 5 different chapters",
+      "icon": "explorer-badge",
+      "triggers": [
+        {
+          "type": "chapter-complete",
+          "threshold": 5
+        }
+      ],
+      "requireAllTriggers": true,
+      "xpReward": 400,
+      "coinReward": 200,
+      "category": "exploration",
+      "isHidden": false,
+      "rarity": "rare",
+      "sortOrder": 7
+    },
+    {
+      "id": "achievement-secret-master",
+      "name": "???",
+      "description": "??? ??? ????? ??",
+      "icon": "secret-badge",
+      "triggers": [
+        {
+          "type": "custom",
+          "threshold": 1,
+          "customCondition": "find_all_easter_eggs"
+        }
+      ],
+      "requireAllTriggers": true,
+      "xpReward": 1000,
+      "coinReward": 500,
+      "category": "exploration",
+      "isHidden": true,
+      "hiddenRevealText": "You found all the hidden easter eggs! You are a true ScribbleCode master!",
+      "rarity": "legendary",
+      "sortOrder": 99
+    }
+  ]
+}
