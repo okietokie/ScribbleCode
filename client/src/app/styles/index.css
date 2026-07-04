@@ -20,14 +20,14 @@
 
 @layer components {
   .btn-primary {
-    @apply inline-flex items-center justify-center px-6 py-3 font-button 
+    @apply inline-flex items-center justify-center px-6 py-3 text-button 
            bg-notebook-yellow text-ink rounded-hand border-hand border-ink 
            shadow-paper hover:shadow-paper-hover transition-all duration-normal
            focus:outline-none focus:ring-2 focus:ring-notebook-blue focus:ring-offset-2;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center px-6 py-3 font-button 
+    @apply inline-flex items-center justify-center px-6 py-3 text-button 
            bg-paper text-ink rounded-hand border-hand border-ink 
            shadow-paper hover:shadow-paper-hover transition-all duration-normal
            focus:outline-none focus:ring-2 focus:ring-notebook-blue focus:ring-offset-2;
@@ -39,19 +39,19 @@
   }
 
   .input-hand {
-    @apply w-full px-4 py-3 font-body bg-paper-page rounded-hand 
+    @apply w-full px-4 py-3 text-body bg-paper-page rounded-hand 
            border-hand border-ink text-ink placeholder-ink/50
            focus:outline-none focus:ring-2 focus:ring-notebook-blue 
            focus:border-transparent transition-all duration-fast;
   }
 
   .badge-hand {
-    @apply inline-flex items-center px-3 py-1 font-caption rounded-hand 
+    @apply inline-flex items-center px-3 py-1 text-caption rounded-hand 
            border-2 border-ink bg-notebook-yellow text-ink text-sm;
   }
 
   .chip-hand {
-    @apply inline-flex items-center px-4 py-2 font-caption rounded-full 
+    @apply inline-flex items-center px-4 py-2 text-caption rounded-full 
            border-2 border-ink bg-paper text-ink text-sm 
            hover:bg-notebook-yellow/30 transition-colors duration-fast cursor-pointer;
   }
