@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { getAnimation, AnimationPreset } from '@/utils';
+import { getAnimation, type AnimationPreset } from './animations';
 
 export const useAnimation = () => {
   const get = useCallback((name: string): AnimationPreset => {

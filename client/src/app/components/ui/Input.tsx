@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
 import { InputProps } from '@/types';
-import { CheckCircle2, XCircle, AlertTriangle } from 'lucide-react';
+import { XCircle } from 'lucide-react';
 
 export const Input: React.FC<InputProps> = ({
   label,
@@ -38,7 +37,7 @@ export const Input: React.FC<InputProps> = ({
             {leftIcon}
           </div>
         )}
-        <motion.input
+        <input
           type={type}
           className={`${baseStyles} ${stateStyles} ${disabledStyles} px-4 py-3 ${leftIcon ? 'pl-10' : ''} ${rightIcon || error ? 'pr-10' : ''}`}
           disabled={disabled}
@@ -58,13 +57,9 @@ export const Input: React.FC<InputProps> = ({
         )}
       </div>
       {error && (
-        <motion.p
-          initial={{ opacity: 0, y: -5 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-sm text-notebook-red mt-1 font-caption"
-        >
+        <p className="text-sm text-notebook-red mt-1 font-caption">
           {error}
-        </motion.p>
+        </p>
       )}
     </div>
   );

@@ -222,10 +222,10 @@ export interface AppShellProps {
 
 // Animation Types
 export interface AnimationPreset {
-  initial: Record<string, unknown>;
-  animate: Record<string, unknown>;
-  exit?: Record<string, unknown>;
-  transition?: Record<string, unknown>;
+  initial: Record<string, string | number | (string | number)[]>;
+  animate: Record<string, string | number | (string | number)[]>;
+  exit?: Record<string, string | number | (string | number)[]>;
+  transition?: Record<string, string | number>;
 }
 
 export type AnimationName = 
@@ -238,6 +238,9 @@ export type AnimationName =
   | 'scale'
   | 'hoverLift'
   | 'paperDrop';
+
+// Re-export for convenience
+export { animationPresets } from '@/utils/animations';
 
 // Store Types
 export interface BaseStore<T> {
