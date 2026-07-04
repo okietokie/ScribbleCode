@@ -1,6 +1,7 @@
 import React from 'react';
-import { X } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { ChipProps } from '@/types';
+import { X } from 'lucide-react';
 
 export const Chip: React.FC<ChipProps> = ({
   children,
@@ -9,32 +10,53 @@ export const Chip: React.FC<ChipProps> = ({
   onClose,
 }) => {
   return (
-    <span
-      className={`chip-hand ${selected ? 'bg-notebook-yellow/30' : ''}`}
-      onClick={onClick}
-      role={onClick ? 'button' : undefined}
-      tabIndex={onClick ? 0 : undefined}
-      onKeyDown={(e) => {
-        if (onClick && (e.key === 'Enter' || e.key === ' ')) {
-          e.preventDefault();
-          onClick();
+    <motion.button
+      type="button"
+      className={`
+        inline-flex items-center gap-2 px-4 py-2 font-caption rounded-full 
+        border-2 border-ink text-sm transition-all duration-normal
+        ${selected 
+          ? 'bg-notebook-yellow text-ink shadow-paper' 
+          : 'bg-paper text-ink hover:bg-notebook-yellow/30'
         }
-      }}
+      `}
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      onClick={onClick}
     >
       {children}
       {onClose && (
-        <button
-          type="button"
-          className="ml-2 hover:bg-ink/10 rounded-full p-0.5 transition-colors"
+        <motion.span
+          whileHover={{ scale: 1.2 }}
+          whileTap={{ scale: 0.8 }}
           onClick={(e) => {
             e.stopPropagation();
             onClose();
           }}
-          aria-label="Remove chip"
         >
-          <X size={14} />
-        </button>
+          <X className="h-3 w-3" />
+        </motion.span>
       )}
+    </motion.button>
+  );
+};
+
+/**
+ * Tag Component - alias for Chip
+ */
+export const Tag: React.FC<ChipProps> = Chip;
+
+/**
+ * Pill Component - similar to Chip but with different styling
+ */
+export const Pill: React.FC<{ 
+  children: React.ReactNode; 
+  color?: string;
+  className?: string 
+}> = ({ children, color = 'notebook-yellow', className = '' }) => {
+  return (
+    <span className={`inline-flex items-center px-3 py-1 font-caption rounded-full bg-${color} border-2 border-ink text-sm ${className}`}>
+      {children}
     </span>
   );
 };
