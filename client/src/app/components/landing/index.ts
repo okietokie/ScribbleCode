@@ -1,0 +1,10 @@
+export { Navbar } from './Navbar';
+export { NotebookHero } from './NotebookHero';
+export { FeaturesSection } from './FeaturesSection';
+export { LearningJourney } from './LearningJourney';
+export { ComparisonSection } from './ComparisonSection';
+export { ShowcaseSection } from './ShowcaseSection';
+export { TestimonialsSection } from './TestimonialsSection';
+export { FAQSection } from './FAQSection';
+export { CTASection } from './CTASection';
+export { Footer } from './Footer';
