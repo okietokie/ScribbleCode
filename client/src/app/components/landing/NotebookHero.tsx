@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { BookOpen, Code, Sparkles, Map, Trophy, Zap, Layers, Target } from 'lucide-react';
+import { BookOpen, Code, Sparkles } from 'lucide-react';
 
 export const NotebookHero = () => {
   return (

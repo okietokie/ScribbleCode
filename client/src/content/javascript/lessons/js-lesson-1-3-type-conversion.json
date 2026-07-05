@@ -1,0 +1,245 @@
+{
+  "id": "js-lesson-1-3-type-conversion",
+  "title": "Type Conversion",
+  "description": "Master type conversion techniques in JavaScript",
+  "longDescription": "Sometimes you need to convert values from one type to another. JavaScript provides both implicit (automatic) and explicit (manual) type conversion. Understanding these mechanisms is crucial for writing predictable code.",
+  "lessonType": "reading",
+  "difficulty": "beginner",
+  "estimatedTimeMinutes": 15,
+  "learningObjectives": [
+    {
+      "id": "obj-1",
+      "statement": "Understand implicit vs explicit type conversion",
+      "bloomLevel": "understand",
+      "assessed": true
+    },
+    {
+      "id": "obj-2",
+      "statement": "Convert between strings, numbers, and booleans",
+      "bloomLevel": "apply",
+      "assessed": true
+    },
+    {
+      "id": "obj-3",
+      "statement": "Identify common type conversion pitfalls",
+      "bloomLevel": "analyze",
+      "assessed": true
+    }
+  ],
+  "rewards": {
+    "xp": {
+      "base": 70,
+      "perfectBonus": 25,
+      "firstAttemptBonus": 15,
+      "minimum": 35,
+      "maximum": 110
+    },
+    "coins": {
+      "base": 20
+    }
+  },
+  "missionNarrative": {
+    "title": "The Conversion Workshop",
+    "story": "Welcome to the Conversion Workshop, where raw data transforms into useful forms! Master alchemist programmers know how to turn strings into numbers, numbers into strings, and any value into truth or falsehood...",
+    "character": "Professor Syntax",
+    "characterAvatar": "/assets/characters/professor-syntax.png"
+  },
+  "sections": [
+    {
+      "type": "text",
+      "id": "intro-text",
+      "title": "What is Type Conversion?",
+      "content": "Type conversion is the process of changing a value from one data type to another.\n\n**Two types of conversion:**\n\n1. **Implicit (Coercion)** - JavaScript automatically converts types\n2. **Explicit** - You manually convert using functions\n\n```javascript\n// Implicit conversion\nlet result = \"5\" - 3;  // 2 (string becomes number)\n\n// Explicit conversion\nlet num = Number(\"5\");  // 5\n```"
+    },
+    {
+      "type": "code",
+      "id": "string-to-number",
+      "title": "Converting to Numbers",
+      "content": "// Using Number() constructor\nNumber(\"42\")      // 42\nNumber(\"3.14\")    // 3.14\nNumber(\"\")        // 0\nNumber(\"hello\")   // NaN (Not a Number)\n\n// Using parseInt() for integers\nparseInt(\"42\")       // 42\nparseInt(\"42px\")     // 42\nparseInt(\"3.99\")     // 3 (truncates!)\n\n// Using parseFloat() for decimals\nparseFloat(\"3.14\")   // 3.14\nparseFloat(\"3.14kg\") // 3.14",
+      "language": "javascript",
+      "showLineNumbers": true,
+      "highlightedLines": [2, 6, 11]
+    },
+    {
+      "type": "callout",
+      "id": "warning-nan",
+      "title": "⚠️ Watch Out for NaN",
+      "content": "**NaN** means \"Not a Number\". It appears when conversion fails!\n\n```javascript\nNumber(\"hello\")  // NaN\nparseInt(\"abc\")  // NaN\n```\n\nAlways validate your conversions!",
+      "variant": "warning",
+      "icon": "⚠️"
+    },
+    {
+      "type": "code",
+      "id": "number-to-string",
+      "title": "Converting to Strings",
+      "content": "// Using String() constructor\nString(42)      // \"42\"\nString(true)    // \"true\"\nString(null)    // \"null\"\n\n// Using .toString() method\n(42).toString()     // \"42\"\n(3.14).toString()   // \"3.14\"\n\n// Using template literals (modern way!)\nconst age = 25;\n`I am ${age} years old`  // \"I am 25 years old\"",
+      "language": "javascript",
+      "showLineNumbers": true
+    },
+    {
+      "type": "markdown",
+      "id": "boolean-conversion",
+      "title": "Converting to Booleans",
+      "content": "## Truthy and Falsy Values\n\nJavaScript has special rules for boolean conversion:\n\n### Falsy Values (become `false`):\n- `false`\n- `0` and `-0`\n- `\"\"` (empty string)\n- `null`\n- `undefined`\n- `NaN`\n\n### Everything else is **Truthy** (becomes `true`)!\n\n```javascript\nBoolean(0)        // false\nBoolean(\"hello\")  // true\nBoolean([])       // true (even empty array!)\nBoolean({})       // true (even empty object!)\n```"
+    },
+    {
+      "type": "code",
+      "id": "implicit-examples",
+      "title": "Implicit Conversion Examples",
+      "content": "// Addition with string\n\"5\" + 3      // \"53\" (number becomes string!)\n\n// Subtraction with string\n\"5\" - 3      // 2 (string becomes number)\n\n// Comparison\n5 == \"5\"     // true (loose equality converts)\n5 === \"5\"    // false (strict equality, no conversion)\n\n// Logical operators\n\"hello\" && 42    // 42 (returns last truthy)\n0 || \"default\"   // \"default\" (returns first truthy)",
+      "language": "javascript",
+      "showLineNumbers": true,
+      "highlightedLines": [2, 5, 8, 11]
+    }
+  ],
+  "challenges": [
+    {
+      "id": "challenge-convert-1",
+      "title": "Predict the Output",
+      "description": "Test your understanding of type conversion",
+      "challengeType": "multiple-choice",
+      "question": "What will be the output of each expression?",
+      "instructions": "Match each expression with its correct result.",
+      "difficulty": "beginner",
+      "estimatedTimeMinutes": 3,
+      "xpReward": 30,
+      "required": true,
+      "allowMultiple": false,
+      "shuffleOptions": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "Number(\"42\") + 8",
+          "isCorrect": false,
+          "explanation": "This equals 50, not 428!"
+        },
+        {
+          "id": "b",
+          "text": "\"42\" + 8",
+          "isCorrect": false,
+          "explanation": "This equals \"428\" (string concatenation)"
+        },
+        {
+          "id": "c",
+          "text": "Number(\"42\") + 8 = 50",
+          "isCorrect": true,
+          "explanation": "Correct! Number(\"42\") becomes 42, then 42 + 8 = 50"
+        },
+        {
+          "id": "d",
+          "text": "\"42\" + 8 = \"428\"",
+          "isCorrect": true,
+          "explanation": "Correct! String + Number = String concatenation"
+        }
+      ],
+      "successFeedback": "Excellent! You understand how JavaScript handles type conversion!",
+      "failureFeedback": "Remember: + with a string does concatenation, but other operators convert to numbers.",
+      "hints": {
+        "enabled": true,
+        "maxHints": 2,
+        "hints": [
+          {
+            "id": "hint-1",
+            "text": "The + operator behaves differently when one operand is a string.",
+            "order": 1
+          },
+          {
+            "id": "hint-2",
+            "text": "Number() explicitly converts, while + may implicitly convert.",
+            "order": 2
+          }
+        ],
+        "finalExplanation": "Number(\"42\") explicitly converts to 42 (number), so 42 + 8 = 50. But \"42\" + 8 uses string concatenation, giving \"428\"."
+      }
+    },
+    {
+      "id": "challenge-convert-2",
+      "title": "Fix the Type Bug",
+      "description": "Complete the code to fix type conversion issues",
+      "challengeType": "fill-blank",
+      "question": "Fill in the blanks to make the code work correctly",
+      "instructions": "Use Number(), String(), or other conversion methods to fix each line.",
+      "difficulty": "beginner",
+      "estimatedTimeMinutes": 4,
+      "xpReward": 40,
+      "required": true,
+      "content": "// User input comes as strings\nlet ageInput = \"25\";\nlet age = {{convert1}}(ageInput);  // Convert to number\n\nlet priceInput = \"19.99\";\nlet price = {{convert2}}(priceInput);  // Convert to decimal\n\nlet count = 5;\nlet message = \"You have \" + {{convert3}}(count) + \" items\";  // Convert to string\n\nlet score = \"0\";\nlet isZero = !{{convert4}}(score);  // Convert to boolean, then negate",
+      "answers": [
+        {
+          "placeholder": "convert1",
+          "acceptableAnswers": ["Number", "parseInt", "parseFloat"],
+          "caseSensitive": false
+        },
+        {
+          "placeholder": "convert2",
+          "acceptableAnswers": ["Number", "parseFloat"],
+          "caseSensitive": false
+        },
+        {
+          "placeholder": "convert3",
+          "acceptableAnswers": ["String", "string"],
+          "caseSensitive": false
+        },
+        {
+          "placeholder": "convert4",
+          "acceptableAnswers": ["Number", "parseInt"],
+          "caseSensitive": false
+        }
+      ],
+      "successFeedback": "Perfect! You've mastered type conversion!",
+      "failureFeedback": "Review the conversion methods: Number() for numbers, String() for strings.",
+      "hints": {
+        "enabled": true,
+        "hints": [
+          {
+            "id": "hint-1",
+            "text": "To convert a string to a number, use Number() or parseInt()/parseFloat().",
+            "order": 1
+          },
+          {
+            "id": "hint-2",
+            "text": "To convert a number to a string, use String() or template literals.",
+            "order": 2
+          }
+        ],
+        "finalExplanation": "Number() converts strings to numbers. String() converts numbers to strings. Boolean() or ! can convert to boolean."
+      }
+    }
+  ],
+  "completionConditions": {
+    "completeAllSections": true,
+    "completeAllChallenges": true,
+    "minAccuracy": 70
+  },
+  "reflectionQuestion": {
+    "question": "Describe a situation where implicit type conversion could cause a bug in your code. How would you prevent it?",
+    "type": "open-ended",
+    "required": false,
+    "sampleAnswer": "Implicit conversion can cause bugs when using == instead of ===. For example, 0 == \"0\" is true, but 0 === \"0\" is false. I would always use strict equality (===) to avoid unexpected conversions."
+  },
+  "nextLessonId": "js-lesson-2-1-intro-functions",
+  "relatedLessons": ["js-lesson-1-1-intro-variables", "js-lesson-1-2-data-types"],
+  "resources": [
+    {
+      "title": "MDN: Type Conversion",
+      "url": "https://developer.mozilla.org/en-US/docs/Glossary/Type_Conversion",
+      "type": "documentation",
+      "source": "Mozilla Developer Network"
+    },
+    {
+      "title": "JavaScript.info: Type Conversions",
+      "url": "https://javascript.info/type-conversions",
+      "type": "article",
+      "source": "JavaScript.info",
+      "estimatedTimeMinutes": 20
+    }
+  ],
+  "tags": ["type-conversion", "coercion", "parsing", "casting"],
+  "keywords": ["Number", "String", "Boolean", "parseInt", "parseFloat", "NaN", "truthy", "falsy"],
+  "category": "JavaScript Basics",
+  "version": "1.0.0",
+  "authors": ["Alex Code"],
+  "reviewers": ["Sarah Script"],
+  "createdAt": "2024-01-01T00:00:00Z",
+  "updatedAt": "2024-01-15T00:00:00Z"
+}

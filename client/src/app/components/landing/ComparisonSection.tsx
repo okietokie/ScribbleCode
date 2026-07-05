@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { CheckCircle2, XCircle, Clock, BookOpen } from 'lucide-react';
+import { CheckCircle2, XCircle } from 'lucide-react';
 
 const comparisons = [
   {

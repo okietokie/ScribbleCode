@@ -1,0 +1,70 @@
+{
+  "id": "js-lesson-2-1-intro-functions",
+  "title": "Introduction to Functions",
+  "description": "Learn to create and call functions in JavaScript",
+  "longDescription": "Functions are reusable blocks of code that perform specific tasks. They are the building blocks of JavaScript programs, allowing you to organize code, avoid repetition, and create modular solutions.",
+  "lessonType": "reading",
+  "difficulty": "beginner",
+  "estimatedTimeMinutes": 12,
+  "learningObjectives": [
+    {"id": "obj-1", "statement": "Understand what functions are and why they're useful", "bloomLevel": "understand", "assessed": true},
+    {"id": "obj-2", "statement": "Declare and call functions", "bloomLevel": "apply", "assessed": true},
+    {"id": "obj-3", "statement": "Identify function components", "bloomLevel": "analyze", "assessed": true}
+  ],
+  "rewards": {"xp": {"base": 60, "perfectBonus": 20, "firstAttemptBonus": 10, "minimum": 30, "maximum": 90}, "coins": {"base": 18}},
+  "missionNarrative": {
+    "title": "The Function Fountain",
+    "story": "Deep in Functions Grove lies the magical Function Fountain, where code springs to life! Learn to harness its power to create reusable spells that solve problems again and again...",
+    "character": "Professor Syntax",
+    "characterAvatar": "/assets/characters/professor-syntax.png"
+  },
+  "sections": [
+    {"type": "text", "id": "intro-text", "title": "What Are Functions?", "content": "A **function** is a reusable block of code designed to perform a particular task.\n\nThink of functions like recipes:\n- You write the recipe once\n- You can use it whenever you need\n- You get consistent results every time\n\n```javascript\n// Defining a function\nfunction sayHello() {\n  console.log(\"Hello!\");\n}\n\n// Calling (invoking) the function\nsayHello();  // Output: Hello!\n```"},
+    {"type": "code", "id": "function-declaration", "title": "Function Declaration", "content": "// Function declaration syntax\nfunction functionName() {\n  // Code to execute\n  console.log(\"Inside the function\");\n}\n\n// Calling the function\nfunctionName();\n\n// Real example\nfunction greetUser() {\n  console.log(\"Welcome to ScribbleCode!\");\n  console.log(\"Let's learn JavaScript!\");\n}\n\ngreetUser();  // Calls the function", "language": "javascript", "showLineNumbers": true, "highlightedLines": [2, 7]},
+    {"type": "callout", "id": "tip-naming", "title": "💡 Pro Tip", "content": "**Name your functions clearly!** Use verbs that describe what the function does:\n\n✅ `calculateTotal`, `getUser`, `validateEmail`\n❌ `doStuff`, `thing`, `func1`", "variant": "tip", "icon": "💡"},
+    {"type": "markdown", "id": "why-functions", "title": "Why Use Functions?", "content": "## Benefits of Functions\n\n1. **Reusability** - Write once, use many times\n2. **Organization** - Break complex problems into smaller pieces\n3. **Maintainability** - Change code in one place\n4. **Readability** - Give meaningful names to code blocks\n\n```javascript\n// Without function - repetitive\nconsole.log(\"Good morning, Alice!\");\nconsole.log(\"Good morning, Bob!\");\nconsole.log(\"Good morning, Charlie!\");\n\n// With function - clean and reusable\nfunction sayGoodMorning(name) {\n  console.log(`Good morning, ${name}!`);\n}\n\nsayGoodMorning(\"Alice\");\nsayGoodMorning(\"Bob\");\nsayGoodMorning(\"Charlie\");\n```"},
+    {"type": "code", "id": "function-parts", "title": "Anatomy of a Function", "content": "function greet(name) {        // ← function keyword + name + parameters\n  return \"Hello, \" + name;     // ← function body + return statement\n}\n\nlet message = greet(\"World\");  // ← calling function, storing result\nconsole.log(message);          // Output: Hello, World", "language": "javascript", "showLineNumbers": false}],
+  "challenges": [
+    {
+      "id": "challenge-func-1",
+      "title": "Create Your First Function",
+      "description": "Write a simple function",
+      "challengeType": "fill-blank",
+      "question": "Complete the function declaration",
+      "instructions": "Fill in the blanks to create a working function.",
+      "difficulty": "beginner",
+      "estimatedTimeMinutes": 2,
+      "xpReward": 25,
+      "required": true,
+      "content": "// Declare a function named {{func1}}\n{{func2}} introduce() {\n  console.log(\"Hi, I'm learning JavaScript!\");\n}\n\n// {{func3}} the function\n{{func4}}();",
+      "answers": [
+        {"placeholder": "func1", "acceptableAnswers": ["introduce"], "caseSensitive": false},
+        {"placeholder": "func2", "acceptableAnswers": ["function", "Function"], "caseSensitive": false},
+        {"placeholder": "func3", "acceptableAnswers": ["call", "Call", "invoke", "Invoke", "run", "Run"], "caseSensitive": false},
+        {"placeholder": "func4", "acceptableAnswers": ["introduce", "introduce()"], "caseSensitive": false}
+      ],
+      "successFeedback": "Great job! You've created and called your first function!",
+      "failureFeedback": "Remember: use 'function' to declare, and just the function name followed by () to call.",
+      "hints": {"enabled": true, "hints": [
+        {"id": "hint-1", "text": "Function declarations start with the 'function' keyword.", "order": 1},
+        {"id": "hint-2", "text": "To call a function, write its name followed by parentheses ().", "order": 2}
+      ], "finalExplanation": "Use 'function introduce()' to declare, and 'introduce()' to call."}
+    }
+  ],
+  "completionConditions": {"completeAllSections": true, "completeAllChallenges": true, "minAccuracy": 70},
+  "reflectionQuestion": {"question": "Describe a task you do repeatedly in your daily life. How could you turn it into a 'function'?", "type": "open-ended", "required": false, "sampleAnswer": "Making breakfast every morning is repetitive. As a function: function makeBreakfast() { get bread; toast bread; add butter; serve; }. I could call this function each morning!"},
+  "nextLessonId": "js-lesson-2-2-parameters",
+  "relatedLessons": ["js-lesson-1-1-intro-variables", "js-lesson-1-2-data-types"],
+  "resources": [
+    {"title": "MDN: Functions", "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions", "type": "documentation", "source": "Mozilla Developer Network"},
+    {"title": "JavaScript.info: Functions", "url": "https://javascript.info/function-basics", "type": "article", "source": "JavaScript.info", "estimatedTimeMinutes": 25}
+  ],
+  "tags": ["functions", "declaration", "basics"],
+  "keywords": ["function", "declare", "call", "invoke", "return"],
+  "category": "JavaScript Basics",
+  "version": "1.0.0",
+  "authors": ["Alex Code"],
+  "reviewers": ["Sarah Script"],
+  "createdAt": "2024-01-01T00:00:00Z",
+  "updatedAt": "2024-01-15T00:00:00Z"
+}
