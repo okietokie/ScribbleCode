@@ -23,7 +23,8 @@
     /* Path aliases */
     "paths": {
       "@/*": ["./src/app/*"],
-      "@progression-engine/*": ["../src/progression-engine/*"]
+      "@progression-engine/*": ["../src/progression-engine/*"],
+      "@lesson-engine/*": ["../src/lesson-engine/*"]
     }
   },
   "include": ["src"],
