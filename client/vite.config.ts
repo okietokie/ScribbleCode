@@ -16,6 +16,14 @@ export default defineConfig({
         find: '@progression-engine',
         replacement: path.resolve(__dirname, '../src/progression-engine'),
       },
+      {
+        find: /^@lesson-engine\/(.*)$/,
+        replacement: path.resolve(__dirname, '../src/lesson-engine/$1'),
+      },
+      {
+        find: '@lesson-engine',
+        replacement: path.resolve(__dirname, '../src/lesson-engine'),
+      },
     ],
   },
 })

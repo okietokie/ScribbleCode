@@ -5,18 +5,18 @@
 
 import { useEffect, useState, useCallback } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
-import { useLessonEngine } from '../../../lesson-engine/hooks/useLessonEngine';
+import { useLessonEngine } from '@lesson-engine/hooks/useLessonEngine';
 import { contentLoader } from '../../content-engine/loaders';
 import type { BaseLesson } from '../../content-engine/schemas';
 import { useProgressionStore } from '../store/useProgressionStore';
-import { getRendererComponent } from '../../../lesson-engine/core/renderer-registry';
-import { ReadingRenderer } from '../../../lesson-engine/renderers/ReadingRenderer';
-import { MultipleChoiceRenderer } from '../../../lesson-engine/renderers/MultipleChoiceRenderer';
-import { ReflectionRenderer } from '../../../lesson-engine/renderers/ReflectionRenderer';
-import { CodePlaygroundRenderer } from '../../../lesson-engine/renderers/CodePlaygroundRenderer';
+import { getRendererComponent } from '@lesson-engine/core/renderer-registry';
+import { ReadingRenderer } from '@lesson-engine/renderers/ReadingRenderer';
+import { MultipleChoiceRenderer } from '@lesson-engine/renderers/MultipleChoiceRenderer';
+import { ReflectionRenderer } from '@lesson-engine/renderers/ReflectionRenderer';
+import { CodePlaygroundRenderer } from '@lesson-engine/renderers/CodePlaygroundRenderer';
 
 // Register renderers
-import { registerRenderers } from '../../../lesson-engine/core/renderer-registry';
+import { registerRenderers } from '@lesson-engine/core/renderer-registry';
 
 registerRenderers([
   { type: 'text', component: ReadingRenderer as any, validator: () => ({ valid: true }) },
