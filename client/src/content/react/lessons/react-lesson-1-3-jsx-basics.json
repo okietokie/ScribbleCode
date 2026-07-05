@@ -1,0 +1,415 @@
+{
+  "id": "react-lesson-1-3-jsx-basics",
+  "title": "JSX Unveiled - HTML in JavaScript",
+  "description": "Master JSX syntax and learn how to write markup inside JavaScript.",
+  "longDescription": "JSX is the special syntax that makes React components look like HTML. In this lesson, you'll discover what JSX really is, learn its rules and quirks, and practice converting between HTML and JSX. By the end, writing JSX will feel natural!",
+  "lessonType": "reading",
+  "difficulty": "beginner",
+  "estimatedTimeMinutes": 15,
+  "learningObjectives": [
+    {
+      "id": "obj-1",
+      "statement": "Explain what JSX is and why it exists",
+      "bloomLevel": "understand",
+      "assessed": true
+    },
+    {
+      "id": "obj-2",
+      "statement": "Write valid JSX with correct syntax",
+      "bloomLevel": "apply",
+      "assessed": true
+    },
+    {
+      "id": "obj-3",
+      "statement": "Convert HTML to JSX and vice versa",
+      "bloomLevel": "apply",
+      "assessed": true
+    },
+    {
+      "id": "obj-4",
+      "statement": "Embed JavaScript expressions in JSX",
+      "bloomLevel": "apply",
+      "assessed": true
+    }
+  ],
+  "rewards": {
+    "xp": {
+      "base": 70,
+      "perfectBonus": 30,
+      "firstAttemptBonus": 15,
+      "minimum": 35,
+      "maximum": 115
+    },
+    "coins": {
+      "base": 25
+    }
+  },
+  "missionNarrative": {
+    "title": "The JSX Transformation",
+    "story": "Deep in Component Cove lies the ancient JSX Scroll - a magical artifact that transforms JavaScript into beautiful UI. Legend says only those who master its syntax can unlock React's full power. Time to become a JSX wizard!",
+    "character": "Professor Syntax",
+    "characterAvatar": "/assets/characters/professor-syntax.png"
+  },
+  "sections": [
+    {
+      "type": "text",
+      "id": "intro-jsx",
+      "title": "What is JSX?",
+      "content": "**JSX** (JavaScript XML) is a syntax extension for JavaScript that lets you write HTML-like markup directly in your JavaScript code.\n\n**Why JSX?**\n- Makes components **readable** - structure is visual\n- Keeps logic and markup **together** - related code stays close\n- Gets **compiled** to regular JavaScript by tools like Babel\n- Feels like HTML but has **superpowers**\n\nJSX isn't required for React, but it's the standard way everyone writes React!"
+    },
+    {
+      "type": "code",
+      "id": "jsx-example",
+      "title": "JSX vs JavaScript",
+      "content": "// JSX (what you write)\nconst element = <h1 className=\"greeting\">Hello!</h1>;\n\n// What it compiles to (what JavaScript sees)\nconst element = React.createElement(\n  'h1',\n  { className: 'greeting' },\n  'Hello!'\n);\n\n// You write JSX. Babel transforms it. React renders it!",
+      "language": "jsx",
+      "showLineNumbers": true,
+      "highlightedLines": [2]
+    },
+    {
+      "type": "callout",
+      "id": "tip-jsx-is-expression",
+      "title": "JSX is an Expression",
+      "content": "After compilation, JSX becomes regular JavaScript objects. This means you can:\n\n```javascript\n// Use JSX in variables\nconst greeting = <h1>Hello!</h1>;\n\n// Return JSX from functions\nfunction createGreeting() {\n  return <p>Welcome!</p>;\n}\n\n// Pass JSX as arguments\nrender(component, <App />);\n\n// Use JSX in conditionals\nisLoggedIn ? <Dashboard /> : <Login />;\n```",
+      "variant": "tip",
+      "icon": "💡"
+    },
+    {
+      "type": "markdown",
+      "id": "jsx-rules",
+      "title": "JSX Rules & Differences from HTML",
+      "content": "## Key JSX Rules\n\n### 1. `className` instead of `class`\nSince `class` is a reserved word in JavaScript:\n\n```javascript\n// ❌ Wrong - class is reserved\n<div class=\"container\">Content</div>\n\n// ✅ Correct\n<div className=\"container\">Content</div>\n```\n\n### 2. All Tags Must Close\nUnlike HTML, every tag needs closing:\n\n```javascript\n// ❌ HTML style\n<img src=\"photo.jpg\">\n<input type=\"text\">\n<br>\n\n// ✅ JSX requires self-closing\n<img src=\"photo.jpg\" />\n<input type=\"text\" />\n<br />\n```\n\n### 3. CamelCase Attributes\nHTML attributes become camelCase:\n\n```javascript\n// HTML → JSX\ntabindex    → tabIndex\nonclick     → onClick\nonchange    → onChange\nfor         → htmlFor\nmaxlength   → maxLength\n```\n\n### 4. Wrap in Curly Braces for JavaScript\nUse `{}` to embed JavaScript expressions:\n\n```javascript\nconst name = \"Alice\";\nconst age = 25;\n\n<h1>Hello, {name}!</h1>\n<p>You are {age} years old</p>\n<p>Next year: {age + 1}</p>\n<p>Adult: {age >= 18 ? 'Yes' : 'No'}</p>\n```"
+    },
+    {
+      "type": "code",
+      "id": "jsx-expressions",
+      "title": "JavaScript Expressions in JSX",
+      "content": "const user = {\n  name: \"Bob\",\n  age: 30,\n  isActive: true\n};\n\nfunction Profile() {\n  return (\n    <div className=\"profile\">\n      {/* Embed variables */}\n      <h2>{user.name}</h2>\n      \n      {/* Do calculations */}\n      <p>Age in months: {user.age * 12}</p>\n      \n      {/* Conditional rendering */}\n      {user.isActive && <span>Active User</span>}\n      \n      {/* Call functions */}\n      <p>Name length: {user.name.length}</p>\n      \n      {/* Access properties */}\n      <p>First letter: {user.name[0]}</p>\n    </div>\n  );\n}",
+      "language": "jsx",
+      "showLineNumbers": true
+    },
+    {
+      "type": "callout",
+      "id": "warning-statements-in-jsx",
+      "title": "What You CAN'T Do in JSX",
+      "content": "You can only use **expressions** in curly braces, not **statements**:\n\n```javascript\n// ✅ Expressions (return values)\n{count + 1}\n{getName()}\n{isLoggedIn ? 'Yes' : 'No'}\n\n// ❌ Statements (don't return values)\n{if (count > 0) { return 'Yes'; }}  // Won't work!\n{for (let i = 0; i < 5; i++) {}}    // Won't work!\n{var x = 5;}                         // Won't work!\n```\n\n**Solution:** Do statements outside JSX, then use the result inside!",
+      "variant": "warning",
+      "icon": "⚠️"
+    },
+    {
+      "type": "markdown",
+      "id": "jsx-strings",
+      "title": "Text Content in JSX",
+      "content": "## Handling Text and Whitespace\n\n### Escaping Curly Braces\nTo display literal `{` or `}`:\n\n```javascript\n// Show {name} as text\n<p>{{ '{{name}}' }}</p>\n{/* or use HTML entities */}\n<p>&#123;name&#125;</p>\n```\n\n### Whitespace Handling\nJSX condenses whitespace:\n\n```javascript\n// These are equivalent:\n<div>Hello World</div>\n<div>\n  Hello\n  World\n</div>\n<div>Hello{' '}World</div> {/* Add space explicitly */}\n```\n\n### Comments in JSX\nUse `{/* comment */}` syntax:\n\n```javascript\n<div>\n  {/* This is a JSX comment */}\n  <h1>Title</h1>\n  {/* \n    Multi-line\n    comment\n  */}\n</div>\n```"
+    }
+  ],
+  "challenges": [
+    {
+      "id": "challenge-jsx-1",
+      "title": "HTML to JSX Conversion",
+      "description": "Convert HTML attributes to JSX syntax",
+      "challengeType": "multiple-choice",
+      "question": "Which is the correct JSX conversion?",
+      "instructions": "Select the correct JSX version for each HTML snippet.",
+      "difficulty": "beginner",
+      "estimatedTimeMinutes": 4,
+      "xpReward": 35,
+      "required": true,
+      "allowMultiple": false,
+      "shuffleOptions": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "<label class=\"input-label\"> → <label className=\"input-label\">",
+          "isCorrect": true,
+          "explanation": "Correct! 'class' becomes 'className' in JSX."
+        },
+        {
+          "id": "b",
+          "text": "<label class=\"input-label\"> → <label class=\"input-label\">",
+          "isCorrect": false,
+          "explanation": "Wrong! 'class' is a reserved word in JavaScript."
+        },
+        {
+          "id": "c",
+          "text": "<img src=\"pic.jpg\"> → <img src=\"pic.jpg\"></img>",
+          "isCorrect": false,
+          "explanation": "Nope! Self-closing tags use />, not full closing tags."
+        },
+        {
+          "id": "d",
+          "text": "<img src=\"pic.jpg\"> → <img src=\"pic.jpg\" />",
+          "isCorrect": true,
+          "explanation": "Correct! Self-closing tags need the slash."
+        },
+        {
+          "id": "e",
+          "text": "<input onclick=\"handleClick()\"> → <input onClick={handleClick}>",
+          "isCorrect": true,
+          "explanation": "Correct! Events are camelCase and use curly braces!"
+        }
+      ],
+      "successFeedback": "Great job! You're mastering JSX syntax!",
+      "failureFeedback": "Remember: className, self-closing tags, and camelCase events!",
+      "hints": {
+        "enabled": true,
+        "maxHints": 3,
+        "hints": [
+          {
+            "id": "hint-1",
+            "text": "'class' in HTML becomes 'className' in JSX.",
+            "order": 1
+          },
+          {
+            "id": "hint-2",
+            "text": "Self-closing tags need a forward slash before the closing bracket.",
+            "order": 2
+          },
+          {
+            "id": "hint-3",
+            "text": "Event handlers are camelCase and wrapped in curly braces.",
+            "order": 3
+          }
+        ],
+        "finalExplanation": "JSX uses className instead of class, requires self-closing tags with />, and uses camelCase for events like onClick."
+      }
+    },
+    {
+      "id": "challenge-jsx-2",
+      "title": "Expression or Statement?",
+      "description": "Identify what can be used inside JSX curly braces",
+      "challengeType": "multiple-choice",
+      "question": "Which of these can be used inside JSX { }?",
+      "instructions": "Select ALL valid expressions that work in JSX.",
+      "difficulty": "beginner",
+      "estimatedTimeMinutes": 3,
+      "xpReward": 30,
+      "required": true,
+      "allowMultiple": true,
+      "shuffleOptions": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "{user.name}",
+          "isCorrect": true,
+          "explanation": "Correct! Property access is an expression."
+        },
+        {
+          "id": "b",
+          "text": "{count + 10}",
+          "isCorrect": true,
+          "explanation": "Correct! Math operations are expressions."
+        },
+        {
+          "id": "c",
+          "text": "{if (active) { return 'Yes'; }}",
+          "isCorrect": false,
+          "explanation": "Wrong! if statements can't go directly in JSX."
+        },
+        {
+          "id": "d",
+          "text": "{isLoggedIn ? 'Logged In' : 'Guest'}",
+          "isCorrect": true,
+          "explanation": "Correct! Ternary operators are expressions!"
+        },
+        {
+          "id": "e",
+          "text": "{function greet() { return 'Hi'; }}",
+          "isCorrect": false,
+          "explanation": "Function declarations are statements, not expressions."
+        },
+        {
+          "id": "f",
+          "text": "{items.map(item => <li key={item.id}>{item.name}</li>)}",
+          "isCorrect": true,
+          "explanation": "Correct! Array methods return values, making them expressions!"
+        }
+      ],
+      "successFeedback": "Perfect! You know the difference between expressions and statements!",
+      "failureFeedback": "Remember: expressions return values, statements don't.",
+      "hints": {
+        "enabled": true,
+        "hints": [
+          {
+            "id": "hint-1",
+            "text": "Expressions produce a value. Statements perform an action.",
+            "order": 1
+          },
+          {
+            "id": "hint-2",
+            "text": "Ternary operators (?:) are expressions. if/else are statements.",
+            "order": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "challenge-jsx-3",
+      "title": "Fix the JSX Errors",
+      "description": "Debug and fix invalid JSX code",
+      "challengeType": "fill-blank",
+      "question": "Fix all JSX errors in this component",
+      "instructions": "Fill in the blanks to correct the JSX syntax errors.",
+      "difficulty": "beginner",
+      "estimatedTimeMinutes": 5,
+      "xpReward": 40,
+      "required": true,
+      "content": "function Profile() {\n  const name = \"Alice\";\n  const age = 25;\n  \n  return (\n    <div {{className}}=\"profile\">\n      <h1>{{name}}</h1>\n      <p>Age: {age}</p>\n      <img src=\"/avatar.jpg\" {{alt}}=\"Profile\" />\n      {{/* Show adult status */}}\n      <p>Adult: {age >= 18 ? 'Yes' : 'No'}</p>\n    </{{div}}>\n  );\n}",
+      "answers": [
+        {
+          "placeholder": "className",
+          "acceptableAnswers": ["className"],
+          "caseSensitive": true
+        },
+        {
+          "placeholder": "name",
+          "acceptableAnswers": ["name"],
+          "caseSensitive": true
+        },
+        {
+          "placeholder": "alt",
+          "acceptableAnswers": ["alt"],
+          "caseSensitive": true
+        },
+        {
+          "placeholder": "/* Show adult status */",
+          "acceptableAnswers": ["/* Show adult status */", "{/* Show adult status */}"],
+          "caseSensitive": false
+        },
+        {
+          "placeholder": "div",
+          "acceptableAnswers": ["div"],
+          "caseSensitive": true
+        }
+      ],
+      "successFeedback": "Excellent! All JSX errors fixed!",
+      "failureFeedback": "Check for: className, proper variable embedding, self-closing tags, and comment syntax.",
+      "hints": {
+        "enabled": true,
+        "hints": [
+          {
+            "id": "hint-1",
+            "text": "HTML 'class' attribute becomes 'className' in JSX.",
+            "order": 1
+          },
+          {
+            "id": "hint-2",
+            "text": "Variables go inside curly braces: {variableName}",
+            "order": 2
+          },
+          {
+            "id": "hint-3",
+            "text": "Self-closing tags like img need a / before the closing >.",
+            "order": 3
+          },
+          {
+            "id": "hint-4",
+            "text": "JSX comments use {/* comment */} syntax.",
+            "order": 4
+          }
+        ]
+      }
+    },
+    {
+      "id": "challenge-jsx-4",
+      "title": "Build a JSX Component",
+      "description": "Create a component using JSX with embedded expressions",
+      "challengeType": "code-completion",
+      "question": "Create a ProductCard component",
+      "instructions": "Complete the ProductCard component that displays product name, price, and whether it's in stock using JSX expressions.",
+      "difficulty": "beginner",
+      "estimatedTimeMinutes": 6,
+      "xpReward": 45,
+      "required": true,
+      "starterCode": "function ProductCard() {\n  const productName = \"Wireless Mouse\";\n  const price = 29.99;\n  const inStock = true;\n  \n  // Complete the return statement below\n  return (\n    \n  );\n}",
+      "solutionCode": "function ProductCard() {\n  const productName = \"Wireless Mouse\";\n  const price = 29.99;\n  const inStock = true;\n  \n  return (\n    <div className=\"product-card\">\n      <h3>{productName}</h3>\n      <p>Price: ${price}</p>\n      <p>Status: {inStock ? 'In Stock' : 'Out of Stock'}</p>\n    </div>\n  );\n}",
+      "testCases": [
+        {
+          "description": "Component returns JSX",
+          "test": "ProductCard.toString().includes('return')"
+        },
+        {
+          "description": "Uses className attribute",
+          "test": "ProductCard.toString().includes('className') || ProductCard.toString().includes('product-card')"
+        },
+        {
+          "description": "Embeds productName variable",
+          "test": "ProductCard.toString().includes('{productName}') || ProductCard.toString().includes('{ price }')"
+        },
+        {
+          "description": "Uses ternary for inStock",
+          "test": "ProductCard.toString().includes('?') || ProductCard.toString().includes('inStock')"
+        }
+      ],
+      "successFeedback": "Awesome! Your JSX component looks great!",
+      "failureFeedback": "Make sure to use className, embed variables with {}, and use a ternary for conditional display.",
+      "hints": {
+        "enabled": true,
+        "hints": [
+          {
+            "id": "hint-1",
+            "text": "Wrap your content in a div with className='product-card'.",
+            "order": 1
+          },
+          {
+            "id": "hint-2",
+            "text": "Use curly braces to embed variables: {productName}",
+            "order": 2
+          },
+          {
+            "id": "hint-3",
+            "text": "Use a ternary operator for the inStock status: {inStock ? 'In Stock' : 'Out of Stock'}",
+            "order": 3
+          },
+          {
+            "id": "hint-4",
+            "text": "Don't forget to close all your tags properly!",
+            "order": 4
+          }
+        ]
+      }
+    }
+  ],
+  "completionConditions": {
+    "completeAllSections": true,
+    "completeAllChallenges": true,
+    "minAccuracy": 70
+  },
+  "reflectionQuestion": {
+    "question": "What do you think is the biggest advantage of JSX over writing plain HTML and JavaScript separately? Describe a scenario where JSX makes your code cleaner.",
+    "type": "open-ended",
+    "required": false,
+    "sampleAnswer": "JSX keeps related code together. For example, when building a user profile card, I can keep the user data logic right next to the markup that displays it. Without JSX, I'd have to jump between my JS file and HTML file, or use verbose createElement calls."
+  },
+  "nextLessonId": "react-lesson-1-4-rendering",
+  "relatedLessons": ["react-lesson-1-2-first-component"],
+  "resources": [
+    {
+      "title": "React Docs - Writing Markup with JSX",
+      "url": "https://react.dev/learn/writing-markup-with-jsx",
+      "type": "documentation",
+      "source": "React Documentation",
+      "estimatedTimeMinutes": 20
+    },
+    {
+      "title": "JSX in Depth",
+      "url": "https://react.dev/learn/javascript-in-jsx",
+      "type": "article",
+      "source": "React Documentation"
+    },
+    {
+      "title": "Babel JSX Plugin",
+      "url": "https://babeljs.io/docs/babel-plugin-transform-react-jsx",
+      "type": "documentation",
+      "source": "Babel"
+    }
+  ],
+  "tags": ["react", "jsx", "syntax", "fundamentals"],
+  "keywords": ["jsx", "xml", "className", "expressions", "camelcase", "self-closing"],
+  "category": "React Fundamentals",
+  "version": "1.0.0",
+  "authors": ["ScribbleCode Curriculum Team"],
+  "reviewers": [],
+  "createdAt": "2024-01-01T00:00:00Z",
+  "updatedAt": "2024-01-15T00:00:00Z"
+}

@@ -1,0 +1,252 @@
+{
+  "id": "react-world-1-fundamentals-map",
+  "worldId": "react-world-1-fundamentals",
+  "mapTitle": "Component Cove & Props Peninsula",
+  "mapDescription": "Explore the coastal village of Component Cove where component houses dot the shoreline, then journey across the tropical Props Peninsula where data flows across bridges connecting component islands.",
+  "backgroundStyle": "paper",
+  "colorPalette": {
+    "primary": "#5DADE2",
+    "secondary": "#F4D03F",
+    "accent": "#E74C3C",
+    "locked": "#BDBDBD",
+    "completed": "#81C784",
+    "current": "#64B5F6"
+  },
+  "camera": {
+    "initialZoom": 1,
+    "minZoom": 0.5,
+    "maxZoom": 2.5,
+    "initialCenter": {
+      "x": 600,
+      "y": 400
+    },
+    "focusOnCurrent": true
+  },
+  "overlay": {
+    "compass": {
+      "enabled": true,
+      "position": "top-right"
+    },
+    "border": {
+      "style": "notebook",
+      "thickness": 20
+    }
+  },
+  "regions": [
+    {
+      "id": "region-component-cove",
+      "title": "Component Cove",
+      "description": "Where components come to life as cozy cottages",
+      "order": 1,
+      "theme": "coastal",
+      "backgroundColor": "#E8F4F8",
+      "bounds": {
+        "minX": 100,
+        "minY": 100,
+        "maxX": 500,
+        "maxY": 350
+      },
+      "nodeIds": [
+        "node-why-react",
+        "node-first-component",
+        "node-jsx-basics",
+        "node-rendering"
+      ],
+      "roads": [
+        {"from": "node-why-react", "to": "node-first-component", "style": "path"},
+        {"from": "node-first-component", "to": "node-jsx-basics", "style": "path"},
+        {"from": "node-jsx-basics", "to": "node-rendering", "style": "path"}
+      ],
+      "decorations": [
+        {"type": "component-house", "position": {"x": 150, "y": 180}, "scale": 1.2, "animation": "sway"},
+        {"type": "jsx-signpost", "position": {"x": 250, "y": 250}, "scale": 1.0},
+        {"type": "seagull", "position": {"x": 300, "y": 100}, "scale": 0.6, "animation": "float"},
+        {"type": "wave", "position": {"x": 200, "y": 340}, "scale": 2.0, "animation": "drift"},
+        {"type": "cloud", "position": {"x": 350, "y": 80}, "scale": 1.5, "animation": "drift"}
+      ],
+      "ambientEffects": ["ocean-breeze"],
+      "celebrationType": "confetti",
+      "landmark": {
+        "type": "component-lighthouse",
+        "position": {"x": 450, "y": 150},
+        "scale": 1.8
+      }
+    },
+    {
+      "id": "region-props-peninsula",
+      "title": "Props Peninsula",
+      "description": "Islands connected by prop bridges",
+      "order": 2,
+      "theme": "tropical",
+      "backgroundColor": "#E8F8F0",
+      "bounds": {
+        "minX": 550,
+        "minY": 100,
+        "maxX": 950,
+        "maxY": 350
+      },
+      "nodeIds": [
+        "node-props-basics",
+        "node-props-destructuring",
+        "node-children-prop",
+        "node-proptypes"
+      ],
+      "roads": [
+        {"from": "node-props-basics", "to": "node-props-destructuring", "style": "bridge"},
+        {"from": "node-props-destructuring", "to": "node-children-prop", "style": "bridge"},
+        {"from": "node-children-prop", "to": "node-proptypes", "style": "path"}
+      ],
+      "decorations": [
+        {"type": "prop-bridge", "position": {"x": 650, "y": 220}, "scale": 1.3},
+        {"type": "data-package", "position": {"x": 700, "y": 200}, "scale": 0.8, "animation": "drift"},
+        {"type": "palm-tree", "position": {"x": 800, "y": 280}, "scale": 1.4, "animation": "sway"},
+        {"type": "destructure-dock", "position": {"x": 850, "y": 180}, "scale": 1.0},
+        {"type": "cloud", "position": {"x": 750, "y": 70}, "scale": 1.4, "animation": "drift"}
+      ],
+      "ambientEffects": ["tropical-breeze"],
+      "celebrationType": "stamp",
+      "landmark": {
+        "type": "prop-bridge-central",
+        "position": {"x": 900, "y": 200},
+        "scale": 1.6
+      }
+    }
+  ],
+  "nodes": [
+    {
+      "id": "node-why-react",
+      "title": "Why React?",
+      "description": "Discover the problem React solves",
+      "lessonId": "react-lesson-1-1-why-react",
+      "position": {"x": 150, "y": 200},
+      "buildingType": "cabin",
+      "xpReward": 50,
+      "estimatedTimeMinutes": 10,
+      "difficulty": "beginner",
+      "tooltipDescription": "Learn why React was created and what problems it solves",
+      "scale": 1.0,
+      "rotation": -5
+    },
+    {
+      "id": "node-first-component",
+      "title": "First Component",
+      "description": "Create your first React component",
+      "lessonId": "react-lesson-1-2-first-component",
+      "position": {"x": 250, "y": 220},
+      "buildingType": "hut",
+      "xpReward": 60,
+      "estimatedTimeMinutes": 12,
+      "difficulty": "beginner",
+      "tooltipDescription": "Build your very first functional component",
+      "scale": 1.1,
+      "rotation": 3
+    },
+    {
+      "id": "node-jsx-basics",
+      "title": "JSX Basics",
+      "description": "Master JSX syntax and rules",
+      "lessonId": "react-lesson-1-3-jsx-basics",
+      "position": {"x": 350, "y": 200},
+      "buildingType": "workshop",
+      "xpReward": 60,
+      "estimatedTimeMinutes": 12,
+      "difficulty": "beginner",
+      "tooltipDescription": "Learn the rules and power of JSX",
+      "scale": 1.2,
+      "rotation": 0
+    },
+    {
+      "id": "node-rendering",
+      "title": "Rendering Components",
+      "description": "Mount components to the DOM",
+      "lessonId": "react-lesson-1-4-rendering",
+      "position": {"x": 450, "y": 220},
+      "buildingType": "tower",
+      "xpReward": 70,
+      "estimatedTimeMinutes": 15,
+      "difficulty": "beginner",
+      "tooltipDescription": "Learn how React renders to the DOM",
+      "scale": 1.3,
+      "rotation": 2
+    },
+    {
+      "id": "node-props-basics",
+      "title": "Props Basics",
+      "description": "Pass data to components",
+      "lessonId": "react-lesson-2-1-props-basics",
+      "position": {"x": 600, "y": 200},
+      "buildingType": "cabin",
+      "xpReward": 60,
+      "estimatedTimeMinutes": 12,
+      "difficulty": "beginner",
+      "tooltipDescription": "Learn to pass props to components",
+      "scale": 1.1,
+      "rotation": -3
+    },
+    {
+      "id": "node-props-destructuring",
+      "title": "Props Destructuring",
+      "description": "Clean prop access patterns",
+      "lessonId": "react-lesson-2-2-props-destructuring",
+      "position": {"x": 700, "y": 220},
+      "buildingType": "hut",
+      "xpReward": 60,
+      "estimatedTimeMinutes": 12,
+      "difficulty": "beginner",
+      "tooltipDescription": "Destructure props for cleaner code",
+      "scale": 1.1,
+      "rotation": 0
+    },
+    {
+      "id": "node-children-prop",
+      "title": "Children Prop",
+      "description": "Compose components with children",
+      "lessonId": "react-lesson-2-3-children-prop",
+      "position": {"x": 800, "y": 200},
+      "buildingType": "playground",
+      "xpReward": 60,
+      "estimatedTimeMinutes": 12,
+      "difficulty": "beginner",
+      "tooltipDescription": "Use children for component composition",
+      "scale": 1.2,
+      "rotation": 3
+    },
+    {
+      "id": "node-proptypes",
+      "title": "PropTypes Validation",
+      "description": "Validate props with PropTypes",
+      "lessonId": "react-lesson-2-4-proptypes",
+      "position": {"x": 900, "y": 220},
+      "buildingType": "checkpoint",
+      "xpReward": 70,
+      "estimatedTimeMinutes": 15,
+      "difficulty": "intermediate",
+      "tooltipDescription": "Add type validation to your components",
+      "scale": 1.3,
+      "rotation": 0
+    }
+  ],
+  "bossBattle": {
+    "id": "react-boss-1-component-architect",
+    "title": "The Component Architect",
+    "description": "Build a complete component hierarchy",
+    "position": {
+      "x": 1000,
+      "y": 200
+    },
+    "buildingType": "boss-arena",
+    "xpReward": 200,
+    "coinReward": 75,
+    "requiredLessonIds": [
+      "react-lesson-1-1-why-react",
+      "react-lesson-1-2-first-component",
+      "react-lesson-1-3-jsx-basics",
+      "react-lesson-1-4-rendering",
+      "react-lesson-2-1-props-basics",
+      "react-lesson-2-2-props-destructuring",
+      "react-lesson-2-3-children-prop",
+      "react-lesson-2-4-proptypes"
+    ],
+    "tooltipDescription": "Combine all your skills to build a reusable UI kit!"
+  }
+}

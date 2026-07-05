@@ -1,0 +1,295 @@
+{
+  "id": "react-lesson-1-2-first-component",
+  "title": "Your First Component - Function Basics",
+  "description": "Create your first React functional component and understand component syntax.",
+  "longDescription": "Components are the building blocks of React. In this lesson, you'll write your very first functional component, learn the syntax rules, and understand how components differ from regular functions. By the end, you'll be creating reusable UI pieces like a pro!",
+  "lessonType": "reading",
+  "difficulty": "beginner",
+  "estimatedTimeMinutes": 12,
+  "learningObjectives": [
+    {
+      "id": "obj-1",
+      "statement": "Define what a React component is",
+      "bloomLevel": "understand",
+      "assessed": true
+    },
+    {
+      "id": "obj-2",
+      "statement": "Create a functional component using correct syntax",
+      "bloomLevel": "apply",
+      "assessed": true
+    },
+    {
+      "id": "obj-3",
+      "statement": "Distinguish between components and regular functions",
+      "bloomLevel": "analyze",
+      "assessed": true
+    }
+  ],
+  "rewards": {
+    "xp": {
+      "base": 60,
+      "perfectBonus": 25,
+      "firstAttemptBonus": 15,
+      "minimum": 30,
+      "maximum": 100
+    },
+    "coins": {
+      "base": 20
+    }
+  },
+  "missionNarrative": {
+    "title": "The Component Workshop",
+    "story": "Welcome to the Component Workshop! Here, master builders craft reusable UI pieces that power entire applications. Your first task? Build your very own component from scratch. Don't worry - Professor Syntax is here to guide you!",
+    "character": "Professor Syntax",
+    "characterAvatar": "/assets/characters/professor-syntax.png"
+  },
+  "sections": [
+    {
+      "type": "text",
+      "id": "intro-components",
+      "title": "What is a Component?",
+      "content": "A **React component** is a JavaScript function that returns JSX (UI markup). Think of it as a custom HTML element that you define yourself.\n\n**Key characteristics:**\n- Starts with a **capital letter** (e.g., `MyComponent`)\n- Returns **JSX** (looks like HTML but lives in JavaScript)\n- Can be **reused** throughout your app\n- Manages its own **structure** and eventually its own **state**\n\nComponents let you break complex UIs into smaller, manageable pieces!"
+    },
+    {
+      "type": "code",
+      "id": "first-component-example",
+      "title": "Your First Component",
+      "content": "// A simple functional component\nfunction Greeting() {\n  return <h1>Hello, World!</h1>;\n}\n\n// You can also use arrow functions:\nconst Welcome = () => {\n  return <h1>Welcome to React!</h1>;\n};\n\n// Both are valid functional components!",
+      "language": "jsx",
+      "showLineNumbers": true,
+      "highlightedLines": [2, 3, 4]
+    },
+    {
+      "type": "callout",
+      "id": "tip-capital-letter",
+      "title": "Important Rule!",
+      "content": "**Component names MUST start with a capital letter!**\n\n```javascript\nfunction greeting() { return <h1>Hi</h1>; } // ❌ Not a component!\nfunction Greeting() { return <h1>Hi</h1>; } // ✅ This is a component!\n```\n\nReact uses the capital letter to distinguish between custom components and built-in HTML elements.",
+      "variant": "warning",
+      "icon": "⚠️"
+    },
+    {
+      "type": "markdown",
+      "id": "component-rules",
+      "title": "Component Rules",
+      "content": "## Rules for Functional Components\n\n### 1. Must Return JSX\nEvery component must return JSX (or null):\n\n```javascript\nfunction ValidComponent() {\n  return <div>Valid!</div>;\n}\n\nfunction InvalidComponent() {\n  console.log(\"No return!\"); // ❌ Returns undefined!\n}\n```\n\n### 2. Single Parent Element\nJSX must have a single root element:\n\n```javascript\n// ❌ Multiple roots - won't work!\nfunction Broken() {\n  return (\n    <h1>Title</h1>\n    <p>Content</p>\n  );\n}\n\n// ✅ Wrap in a parent div\nfunction Fixed() {\n  return (\n    <div>\n      <h1>Title</h1>\n      <p>Content</p>\n    </div>\n  );\n}\n```\n\n### 3. Close All Tags\nAll JSX tags must be closed:\n\n```javascript\n// ❌ Missing closing tag\n<img src=\"photo.jpg\">\n\n// ✅ Self-closing\n<img src=\"photo.jpg\" />\n```"
+    },
+    {
+      "type": "code",
+      "id": "component-examples",
+      "title": "More Component Examples",
+      "content": "// Button component\nfunction MyButton() {\n  return <button>Click me!</button>;\n}\n\n// Card component\nfunction ProfileCard() {\n  return (\n    <div className=\"card\">\n      <h2>User Name</h2>\n      <p>Developer & Designer</p>\n    </div>\n  );\n}\n\n// Navigation component\nfunction NavBar() {\n  return (\n    <nav>\n      <a href=\"/home\">Home</a>\n      <a href=\"/about\">About</a>\n      <a href=\"/contact\">Contact</a>\n    </nav>\n  );\n}",
+      "language": "jsx",
+      "showLineNumbers": true
+    },
+    {
+      "type": "callout",
+      "id": "note-reusability",
+      "title": "The Power of Reusability",
+      "content": "Once you define a component, you can use it **multiple times**:\n\n```javascript\nfunction Greeting() {\n  return <h1>Hello!</h1>;\n}\n\n// Use it wherever you need!\nfunction App() {\n  return (\n    <div>\n      <Greeting />\n      <Greeting />\n      <Greeting />\n    </div>\n  );\n}\n```\n\nThis is much better than copying and pasting HTML!",
+      "variant": "tip",
+      "icon": "✨"
+    }
+  ],
+  "challenges": [
+    {
+      "id": "challenge-first-component-1",
+      "title": "Spot the Component",
+      "description": "Identify which functions are valid React components",
+      "challengeType": "multiple-choice",
+      "question": "Which of these are valid React components?",
+      "instructions": "Select ALL correct answers.",
+      "difficulty": "beginner",
+      "estimatedTimeMinutes": 3,
+      "xpReward": 30,
+      "required": true,
+      "allowMultiple": true,
+      "shuffleOptions": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "function Header() { return <header>Site Header</header>; }",
+          "isCorrect": true,
+          "explanation": "Correct! Capital letter, returns JSX - perfect component!"
+        },
+        {
+          "id": "b",
+          "text": "function footer() { return <footer>Footer</footer>; }",
+          "isCorrect": false,
+          "explanation": "Wrong! Component names must start with a capital letter."
+        },
+        {
+          "id": "c",
+          "text": "const Sidebar = () => { return <aside>Sidebar</aside>; };",
+          "isCorrect": true,
+          "explanation": "Correct! Arrow function with capital name returning JSX works!"
+        },
+        {
+          "id": "d",
+          "text": "function Card() { console.log('Card'); }",
+          "isCorrect": false,
+          "explanation": "Nope! This doesn't return any JSX."
+        },
+        {
+          "id": "e",
+          "text": "const Button = () => <button>Click</button>;",
+          "isCorrect": true,
+          "explanation": "Correct! Implicit return with JSX is valid!"
+        }
+      ],
+      "successFeedback": "Excellent! You know how to spot a valid component!",
+      "failureFeedback": "Remember: capital letters and returning JSX are essential!",
+      "hints": {
+        "enabled": true,
+        "maxHints": 3,
+        "hints": [
+          {
+            "id": "hint-1",
+            "text": "Check if the function name starts with a capital letter.",
+            "order": 1
+          },
+          {
+            "id": "hint-2",
+            "text": "Make sure the function returns JSX markup.",
+            "order": 2
+          },
+          {
+            "id": "hint-3",
+            "text": "Arrow functions can implicitly return JSX without braces!",
+            "order": 3
+          }
+        ],
+        "finalExplanation": "Valid components need: 1) Capital letter name, 2) Return JSX. Both function declarations and arrow functions work!"
+      }
+    },
+    {
+      "id": "challenge-first-component-2",
+      "title": "Fix the Component",
+      "description": "Debug and fix broken component code",
+      "challengeType": "fill-blank",
+      "question": "Fix the errors in this component",
+      "instructions": "Fill in the blanks to make this a valid React component.",
+      "difficulty": "beginner",
+      "estimatedTimeMinutes": 4,
+      "xpReward": 35,
+      "required": true,
+      "content": "// Fix this broken component:\nfunction {{Welcome}}() {\n  return (\n    <div>\n      <h1>{{Hello}}</h1>\n      <p>Welcome to React!</p>\n    </{{div}}>\n  );\n}",
+      "answers": [
+        {
+          "placeholder": "Welcome",
+          "acceptableAnswers": ["Welcome"],
+          "caseSensitive": true
+        },
+        {
+          "placeholder": "Hello",
+          "acceptableAnswers": ["Hello", "Hi", "Hey", "Greetings"],
+          "caseSensitive": false
+        },
+        {
+          "placeholder": "div",
+          "acceptableAnswers": ["div"],
+          "caseSensitive": true
+        }
+      ],
+      "successFeedback": "Perfect! You've fixed the component!",
+      "failureFeedback": "Check that all tags are properly closed and the structure is valid.",
+      "hints": {
+        "enabled": true,
+        "hints": [
+          {
+            "id": "hint-1",
+            "text": "Component names should be descriptive and start with a capital letter.",
+            "order": 1
+          },
+          {
+            "id": "hint-2",
+            "text": "Every opening tag needs a matching closing tag.",
+            "order": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "challenge-first-component-3",
+      "title": "Build a Component",
+      "description": "Create a simple component from scratch",
+      "challengeType": "code-completion",
+      "question": "Create a Footer component",
+      "instructions": "Complete the code to create a Footer component that returns a <footer> element with a paragraph containing copyright text.",
+      "difficulty": "beginner",
+      "estimatedTimeMinutes": 5,
+      "xpReward": 40,
+      "required": true,
+      "starterCode": "// Create a Footer component below\n\n",
+      "solutionCode": "function Footer() {\n  return (\n    <footer>\n      <p>© 2024 My Website</p>\n    </footer>\n  );\n}",
+      "testCases": [
+        {
+          "description": "Component is defined",
+          "test": "typeof Footer === 'function'"
+        },
+        {
+          "description": "Component returns JSX with footer element",
+          "test": "Footer.toString().includes('footer')"
+        }
+      ],
+      "successFeedback": "Awesome! You've created your own reusable component!",
+      "failureFeedback": "Make sure your component has a capital letter name and returns JSX.",
+      "hints": {
+        "enabled": true,
+        "hints": [
+          {
+            "id": "hint-1",
+            "text": "Start with 'function Footer()' and use curly braces.",
+            "order": 1
+          },
+          {
+            "id": "hint-2",
+            "text": "Use 'return' followed by your JSX in parentheses.",
+            "order": 2
+          },
+          {
+            "id": "hint-3",
+            "text": "Don't forget to close all your tags!",
+            "order": 3
+          }
+        ]
+      }
+    }
+  ],
+  "completionConditions": {
+    "completeAllSections": true,
+    "completeAllChallenges": true,
+    "minAccuracy": 70
+  },
+  "reflectionQuestion": {
+    "question": "Think about a website you visit often. What are 3 components you could extract from it? Name each component and describe what it would contain.",
+    "type": "open-ended",
+    "required": false,
+    "sampleAnswer": "For YouTube: 1) VideoPlayer - the main video player with controls. 2) VideoCard - thumbnail, title, and channel info for each video. 3) CommentSection - list of comments with reply functionality."
+  },
+  "nextLessonId": "react-lesson-1-3-jsx-basics",
+  "relatedLessons": ["react-lesson-1-1-why-react"],
+  "resources": [
+    {
+      "title": "React Docs - Your First Component",
+      "url": "https://react.dev/learn/your-first-component",
+      "type": "documentation",
+      "source": "React Documentation",
+      "estimatedTimeMinutes": 15
+    },
+    {
+      "title": "Components and Props",
+      "url": "https://react.dev/learn/components-and-props",
+      "type": "article",
+      "source": "React Documentation"
+    }
+  ],
+  "tags": ["react", "components", "functions", "fundamentals"],
+  "keywords": ["component", "function", "jsx", "return", "capital-letter"],
+  "category": "React Fundamentals",
+  "version": "1.0.0",
+  "authors": ["ScribbleCode Curriculum Team"],
+  "reviewers": [],
+  "createdAt": "2024-01-01T00:00:00Z",
+  "updatedAt": "2024-01-15T00:00:00Z"
+}

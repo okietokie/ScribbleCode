@@ -1,0 +1,412 @@
+{
+  "id": "react-lesson-2-1-props-basics",
+  "title": "Props Basics - Sending Data Down",
+  "description": "Learn how to pass data from parent to child components using props.",
+  "longDescription": "Components become truly powerful when they can receive data from their parents. In this lesson, you'll discover how props work, learn to pass different types of values, and understand React's one-way data flow. By the end, your components will be dynamic and reusable!",
+  "lessonType": "reading",
+  "difficulty": "beginner",
+  "estimatedTimeMinutes": 12,
+  "learningObjectives": [
+    {
+      "id": "obj-1",
+      "statement": "Explain what props are and why they exist",
+      "bloomLevel": "understand",
+      "assessed": true
+    },
+    {
+      "id": "obj-2",
+      "statement": "Pass props to components",
+      "bloomLevel": "apply",
+      "assessed": true
+    },
+    {
+      "id": "obj-3",
+      "statement": "Access props inside a component",
+      "bloomLevel": "apply",
+      "assessed": true
+    },
+    {
+      "id": "obj-4",
+      "statement": "Understand one-way data flow in React",
+      "bloomLevel": "understand",
+      "assessed": true
+    }
+  ],
+  "rewards": {
+    "xp": {
+      "base": 60,
+      "perfectBonus": 25,
+      "firstAttemptBonus": 15,
+      "minimum": 30,
+      "maximum": 100
+    },
+    "coins": {
+      "base": 20
+    }
+  },
+  "missionNarrative": {
+    "title": "The Prop Delivery Service",
+    "story": "Welcome to the Props Peninsula! Here, data packages travel between component islands via magical bridges. As a new Prop Courier, you'll learn to package and deliver data to components throughout the realm. Ready to start your delivery route?",
+    "character": "Professor Syntax",
+    "characterAvatar": "/assets/characters/professor-syntax.png"
+  },
+  "sections": [
+    {
+      "type": "text",
+      "id": "intro-props",
+      "title": "What are Props?",
+      "content": "**Props** (short for \"properties\") are how you pass data from a parent component to a child component.\n\nThink of props like **function arguments** for components:\n\n```javascript\n// Function with argument\nfunction greet(name) {\n  return `Hello, ${name}!`;\n}\n\n// Component with prop\nfunction Greeting({ name }) {\n  return <h1>Hello, {name}!</h1>;\n}\n```\n\n**Key facts about props:**\n- Props are **read-only** - children can't modify them\n- Data flows **one way**: parent → child\n- Any JavaScript value can be a prop (strings, numbers, objects, functions)\n- Props make components **reusable** with different data"
+    },
+    {
+      "type": "code",
+      "id": "passing-props-example",
+      "title": "Passing Props to Components",
+      "content": "// Parent component passes props\nfunction App() {\n  return (\n    <div>\n      <Greeting name=\"Alice\" />\n      <Greeting name=\"Bob\" />\n      <Greeting name=\"Charlie\" />\n    </div>\n  );\n}\n\n// Child component receives props\nfunction Greeting(props) {\n  return <h1>Hello, {props.name}!</h1>;\n}\n\n// Result: Three greetings with different names!",
+      "language": "jsx",
+      "showLineNumbers": true,
+      "highlightedLines": [4, 5, 6, 11]
+    },
+    {
+      "type": "callout",
+      "id": "tip-props-are-read-only",
+      "title": "Important: Props are Read-Only!",
+      "content": "**Never modify props inside a component!**\n\n```javascript\n// ❌ WRONG - Don't do this!\nfunction Counter(props) {\n  props.count = props.count + 1; // Error!\n}\n\n// ✅ CORRECT - Use state instead\nfunction Counter({ count }) {\n  const [newCount, setCount] = useState(count);\n}\n```\n\nProps flow downward. If a child needs to change data, it requests the parent to do it (we'll learn how later with callbacks!).",
+      "variant": "warning",
+      "icon": "⚠️"
+    },
+    {
+      "type": "markdown",
+      "id": "different-prop-types",
+      "title": "Different Types of Props",
+      "content": "## You Can Pass Any JavaScript Value\n\n### Strings\n```javascript\n<Greeting name=\"Alice\" />\n```\n\n### Numbers\n```javascript\n<Counter count={5} />\n<Price amount={29.99} />\n```\n\n### Booleans\n```javascript\n<Button disabled={true} />\n<Modal isOpen={false} />\n```\n\n### Objects\n```javascript\nconst user = { name: \"Alice\", age: 25 };\n<Profile user={user} />\n```\n\n### Arrays\n```javascript\n<TodoList items={[\"Buy milk\", \"Walk dog\"]} />\n```\n\n### Functions\n```javascript\n<Button onClick={handleClick} />\n<Form onSubmit={handleSubmit} />\n```"
+    },
+    {
+      "type": "code",
+      "id": "multiple-props-example",
+      "title": "Multiple Props on One Component",
+      "content": "// Pass multiple props\nfunction App() {\n  return (\n    <UserCard \n      name=\"Sarah Johnson\"\n      age={28}\n      email=\"sarah@example.com\"\n      isActive={true}\n      skills={[\"React\", \"JavaScript\", \"CSS\"]}\n    />\n  );\n}\n\n// Receive all props\nfunction UserCard(props) {\n  return (\n    <div className=\"card\">\n      <h2>{props.name}</h2>\n      <p>Age: {props.age}</p>\n      <p>Email: {props.email}</p>\n      <p>Status: {props.isActive ? 'Active' : 'Inactive'}</p>\n      <ul>\n        {props.skills.map(skill => (\n          <li key={skill}>{skill}</li>\n        ))}\n      </ul>\n    </div>\n  );\n}",
+      "language": "jsx",
+      "showLineNumbers": true
+    },
+    {
+      "type": "callout",
+      "id": "note-one-way-flow",
+      "title": "One-Way Data Flow",
+      "content": "React uses **one-way data flow** (also called \"unidirectional data flow\"):\n\n```\nParent Component\n     ↓ (passes props)\nChild Component\n     ↓ (passes props)\nGrandchild Component\n```\n\n**Why is this good?**\n- Easy to trace where data comes from\n- Predictable behavior\n- Easier to debug\n- Clear component responsibilities\n\nData only flows **down**, never up or sideways!",
+      "variant": "info",
+      "icon": "📊"
+    },
+    {
+      "type": "markdown",
+      "id": "prop-expressions",
+      "title": "Using Expressions as Props",
+      "content": "## Dynamic Props with Curly Braces\n\nYou can use any JavaScript expression inside `{}`:\n\n```javascript\nconst firstName = \"Alice\";\nconst lastName = \"Smith\";\nconst age = 25;\n\n// String concatenation\n<User fullName={firstName + \" \" + lastName} />\n\n// Template literals\n<User fullName={`${firstName} ${lastName}`} />\n\n// Math operations\n<Birthday age={age + 1} />\n\n// Function calls\n<Display time={getCurrentTime()} />\n\n// Conditional values\n<Button disabled={!isLoggedIn} />\n\n// Ternary operator\n<Status color={isActive ? \"green\" : \"red\"} />\n```\n\n**Remember:** Use `{}` for any non-string value or expression!"
+    }
+  ],
+  "challenges": [
+    {
+      "id": "challenge-props-basics-1",
+      "title": "Identify Valid Props",
+      "description": "Test your understanding of what can be passed as props",
+      "challengeType": "multiple-choice",
+      "question": "Which of these are valid ways to pass props?",
+      "instructions": "Select ALL correct answers.",
+      "difficulty": "beginner",
+      "estimatedTimeMinutes": 3,
+      "xpReward": 30,
+      "required": true,
+      "allowMultiple": true,
+      "shuffleOptions": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "<Button label=\"Click me\" />",
+          "isCorrect": true,
+          "explanation": "Correct! String props don't need curly braces."
+        },
+        {
+          "id": "b",
+          "text": "<Counter count={5} />",
+          "isCorrect": true,
+          "explanation": "Correct! Numbers need curly braces."
+        },
+        {
+          "id": "c",
+          "text": "<User data={{name: 'Alice'}} />",
+          "isCorrect": true,
+          "explanation": "Correct! Objects can be passed inline with double braces."
+        },
+        {
+          "id": "d",
+          "text": "<Component prop=hello />",
+          "isCorrect": false,
+          "explanation": "Wrong! Unquoted text that's not a boolean causes an error."
+        },
+        {
+          "id": "e",
+          "text": "<Display value={someVariable} />",
+          "isCorrect": true,
+          "explanation": "Correct! Variables need curly braces."
+        },
+        {
+          "id": "f",
+          "text": "<Input disabled={false} />",
+          "isCorrect": true,
+          "explanation": "Correct! Booleans work great as props."
+        }
+      ],
+      "successFeedback": "Excellent! You understand how to pass different types of props!",
+      "failureFeedback": "Remember: strings can be quoted, but other values need curly braces!",
+      "hints": {
+        "enabled": true,
+        "maxHints": 3,
+        "hints": [
+          {
+            "id": "hint-1",
+            "text": "String literals can use quotes. Other values need {}.",
+            "order": 1
+          },
+          {
+            "id": "hint-2",
+            "text": "Objects can be passed inline: {{key: value}}",
+            "order": 2
+          },
+          {
+            "id": "hint-3",
+            "text": "Unquoted text (except true/false) causes errors.",
+            "order": 3
+          }
+        ],
+        "finalExplanation": "Valid props: strings with quotes, numbers/variables/objects/functions in curly braces, and booleans true/false."
+      }
+    },
+    {
+      "id": "challenge-props-basics-2",
+      "title": "Access Props Correctly",
+      "description": "Choose the correct way to access props inside a component",
+      "challengeType": "multiple-choice",
+      "question": "How do you correctly access the 'name' prop?",
+      "instructions": "Select the correct syntax.",
+      "difficulty": "beginner",
+      "estimatedTimeMinutes": 2,
+      "xpReward": 25,
+      "required": true,
+      "allowMultiple": false,
+      "shuffleOptions": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "function Greeting(props) { return <h1>{props.name}</h1>; }",
+          "isCorrect": true,
+          "explanation": "Correct! Access props via the props object."
+        },
+        {
+          "id": "b",
+          "text": "function Greeting(props) { return <h1>{name}</h1>; }",
+          "isCorrect": false,
+          "explanation": "Wrong! 'name' alone isn't defined. Use props.name."
+        },
+        {
+          "id": "c",
+          "text": "function Greeting(props) { return <h1>{this.name}</h1>; }",
+          "isCorrect": false,
+          "explanation": "Nope! This is for class components, not functional components."
+        },
+        {
+          "id": "d",
+          "text": "function Greeting({ name }) { return <h1>{name}</h1>; }",
+          "isCorrect": true,
+          "explanation": "Also correct! This is destructuring - we'll cover it next lesson!"
+        }
+      ],
+      "successFeedback": "Great! You know how to access props!",
+      "failureFeedback": "Use props.propertyName or destructure in the function parameters.",
+      "hints": {
+        "enabled": true,
+        "hints": [
+          {
+            "id": "hint-1",
+            "text": "Props are accessed through the 'props' parameter.",
+            "order": 1
+          },
+          {
+            "id": "hint-2",
+            "text": "Use dot notation: props.propertyName",
+            "order": 2
+          }
+        ]
+      }
+    },
+    {
+      "id": "challenge-props-basics-3",
+      "title": "Complete the Component",
+      "description": "Fill in the blanks to create a working component with props",
+      "challengeType": "fill-blank",
+      "question": "Complete this Profile component",
+      "instructions": "Fill in the blanks to make the component work correctly.",
+      "difficulty": "beginner",
+      "estimatedTimeMinutes": 5,
+      "xpReward": 40,
+      "required": true,
+      "content": "// Using the component\nfunction App() {\n  return (\n    <Profile \n      {{name}}=\"John Doe\"\n      {{age}}={30}\n      {{city}}=\"New York\"\n    />\n  );\n}\n\n// Defining the component\nfunction Profile({{props}}) {\n  return (\n    <div>\n      <h2>{{props.name}}</h2>\n      <p>Age: {{props.age}}</p>\n      <p>Lives in: {{props.city}}</p>\n    </div>\n  );\n}",
+      "answers": [
+        {
+          "placeholder": "name",
+          "acceptableAnswers": ["name"],
+          "caseSensitive": true
+        },
+        {
+          "placeholder": "age",
+          "acceptableAnswers": ["age"],
+          "caseSensitive": true
+        },
+        {
+          "placeholder": "city",
+          "acceptableAnswers": ["city"],
+          "caseSensitive": true
+        },
+        {
+          "placeholder": "props",
+          "acceptableAnswers": ["props"],
+          "caseSensitive": true
+        },
+        {
+          "placeholder": "props.name",
+          "acceptableAnswers": ["props.name"],
+          "caseSensitive": true
+        },
+        {
+          "placeholder": "props.age",
+          "acceptableAnswers": ["props.age"],
+          "caseSensitive": true
+        },
+        {
+          "placeholder": "props.city",
+          "acceptableAnswers": ["props.city"],
+          "caseSensitive": true
+        }
+      ],
+      "successFeedback": "Perfect! You've mastered passing and accessing props!",
+      "failureFeedback": "Check that prop names match between parent and child components.",
+      "hints": {
+        "enabled": true,
+        "hints": [
+          {
+            "id": "hint-1",
+            "text": "Prop names should be descriptive and match what you're passing.",
+            "order": 1
+          },
+          {
+            "id": "hint-2",
+            "text": "Inside the component, access props with dot notation.",
+            "order": 2
+          },
+          {
+            "id": "hint-3",
+            "text": "The parameter name in the function is typically 'props'.",
+            "order": 3
+          }
+        ]
+      }
+    },
+    {
+      "id": "challenge-props-basics-4",
+      "title": "Build a Product Card",
+      "description": "Create a reusable product card component using props",
+      "challengeType": "code-completion",
+      "question": "Create a ProductCard component that accepts props",
+      "instructions": "Create a ProductCard component that displays product name, price, and description passed as props.",
+      "difficulty": "beginner",
+      "estimatedTimeMinutes": 7,
+      "xpReward": 45,
+      "required": true,
+      "starterCode": "// Create your ProductCard component below\n\n\n// Use it in App\nfunction App() {\n  return (\n    <div>\n      <ProductCard \n        name=\"Wireless Headphones\"\n        price={79.99}\n        description=\"High-quality wireless headphones with noise cancellation\"\n      />\n    </div>\n  );\n}",
+      "solutionCode": "// ProductCard component\nfunction ProductCard(props) {\n  return (\n    <div className=\"product-card\">\n      <h3>{props.name}</h3>\n      <p className=\"price\">${props.price}</p>\n      <p className=\"description\">{props.description}</p>\n    </div>\n  );\n}\n\n// Use it in App\nfunction App() {\n  return (\n    <div>\n      <ProductCard \n        name=\"Wireless Headphones\"\n        price={79.99}\n        description=\"High-quality wireless headphones with noise cancellation\"\n      />\n    </div>\n  );\n}",
+      "testCases": [
+        {
+          "description": "ProductCard component exists",
+          "test": "typeof ProductCard === 'function'"
+        },
+        {
+          "description": "Component accepts props parameter",
+          "test": "ProductCard.toString().includes('props')"
+        },
+        {
+          "description": "Displays product name",
+          "test": "ProductCard.toString().includes('props.name') || ProductCard.toString().includes('{name}')"
+        },
+        {
+          "description": "Displays price",
+          "test": "ProductCard.toString().includes('props.price') || ProductCard.toString().includes('{price}')"
+        },
+        {
+          "description": "Displays description",
+          "test": "ProductCard.toString().includes('props.description') || ProductCard.toString().includes('{description}')"
+        }
+      ],
+      "successFeedback": "Awesome! Your ProductCard component is ready to use!",
+      "failureFeedback": "Make sure your component accepts props and displays all three properties.",
+      "hints": {
+        "enabled": true,
+        "hints": [
+          {
+            "id": "hint-1",
+            "text": "Define function ProductCard(props) with a return statement.",
+            "order": 1
+          },
+          {
+            "id": "hint-2",
+            "text": "Wrap content in a div with className='product-card'.",
+            "order": 2
+          },
+          {
+            "id": "hint-3",
+            "text": "Access each prop with props.propertyName inside curly braces.",
+            "order": 3
+          },
+          {
+            "id": "hint-4",
+            "text": "Don't forget to display name, price, AND description.",
+            "order": 4
+          }
+        ]
+      }
+    }
+  ],
+  "completionConditions": {
+    "completeAllSections": true,
+    "completeAllChallenges": true,
+    "minAccuracy": 70
+  },
+  "reflectionQuestion": {
+    "question": "Think about a real-world scenario where you'd need to pass props. Describe a component you might build and what props it would need.",
+    "type": "open-ended",
+    "required": false,
+    "sampleAnswer": "I'd build a RecipeCard component that displays cooking recipes. It would need props like: title (string), cookTime (number), servings (number), ingredients (array), instructions (string), and imageUrl (string). This way I could reuse the same component for hundreds of different recipes!"
+  },
+  "nextLessonId": "react-lesson-2-2-props-destructuring",
+  "relatedLessons": ["react-lesson-1-2-first-component", "react-lesson-1-3-jsx-basics"],
+  "resources": [
+    {
+      "title": "React Docs - Passing Props to a Component",
+      "url": "https://react.dev/learn/passing-props-to-a-component",
+      "type": "documentation",
+      "source": "React Documentation",
+      "estimatedTimeMinutes": 15
+    },
+    {
+      "title": "Components and Props",
+      "url": "https://react.dev/learn/components-and-props",
+      "type": "article",
+      "source": "React Documentation"
+    }
+  ],
+  "tags": ["react", "props", "data-flow", "fundamentals"],
+  "keywords": ["props", "properties", "parent", "child", "data-flow", "one-way"],
+  "category": "React Fundamentals",
+  "version": "1.0.0",
+  "authors": ["ScribbleCode Curriculum Team"],
+  "reviewers": [],
+  "createdAt": "2024-01-01T00:00:00Z",
+  "updatedAt": "2024-01-15T00:00:00Z"
+}

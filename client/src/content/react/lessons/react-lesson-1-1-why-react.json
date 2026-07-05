@@ -1,0 +1,259 @@
+{
+  "id": "react-lesson-1-1-why-react",
+  "title": "Why React? The Problem React Solves",
+  "description": "Understand why React was created and what problems it solves for developers.",
+  "longDescription": "Before React, building interactive user interfaces was challenging. Developers struggled with keeping the UI in sync with data changes, leading to complex, error-prone code. React introduced a revolutionary approach that makes building UIs intuitive and efficient. In this lesson, you'll discover the problems React solves and why it has become the most popular frontend library.",
+  "lessonType": "reading",
+  "difficulty": "beginner",
+  "estimatedTimeMinutes": 10,
+  "learningObjectives": [
+    {
+      "id": "obj-1",
+      "statement": "Explain the problems React was designed to solve",
+      "bloomLevel": "understand",
+      "assessed": true
+    },
+    {
+      "id": "obj-2",
+      "statement": "Describe component-based architecture",
+      "bloomLevel": "understand",
+      "assessed": true
+    },
+    {
+      "id": "obj-3",
+      "statement": "Identify scenarios where React is beneficial",
+      "bloomLevel": "apply",
+      "assessed": true
+    }
+  ],
+  "rewards": {
+    "xp": {
+      "base": 50,
+      "perfectBonus": 20,
+      "firstAttemptBonus": 10,
+      "minimum": 25,
+      "maximum": 80
+    },
+    "coins": {
+      "base": 15
+    }
+  },
+  "missionNarrative": {
+    "title": "The Ancient Problem",
+    "story": "Long ago, developers faced a terrible curse - the UI would fall out of sync with their data! Buttons wouldn't update, lists showed old information, and chaos reigned. Then, the wise developers at Facebook discovered a powerful spell called React...",
+    "character": "Professor Syntax",
+    "characterAvatar": "/assets/characters/professor-syntax.png"
+  },
+  "sections": [
+    {
+      "type": "text",
+      "id": "intro-text",
+      "title": "The Old Way Was Painful",
+      "content": "Imagine you're building a todo list app. Every time a user adds a task, you need to:\n\n1. Update your data array\n2. Find the right DOM element\n3. Create new HTML\n4. Insert it into the page\n5. Update any counters or filters\n\n**This is error-prone!** What if you forget step 4? Your UI is now broken."
+    },
+    {
+      "type": "code",
+      "id": "vanilla-js-example",
+      "title": "Vanilla JavaScript Approach",
+      "content": "// Manually updating the DOM\ntodos.push(newTodo);\n\nconst list = document.getElementById('todo-list');\nconst li = document.createElement('li');\nli.textContent = newTodo.text;\nlist.appendChild(li);\n\n// Don't forget to update the counter!\nconst counter = document.getElementById('count');\ncounter.textContent = todos.length;",
+      "language": "javascript",
+      "showLineNumbers": true
+    },
+    {
+      "type": "callout",
+      "id": "tip-react-way",
+      "title": "The React Solution",
+      "content": "**React flips this around!** You just update your data, and React automatically updates the UI. It's like having a magical assistant who watches your data and keeps everything in sync.",
+      "variant": "tip",
+      "icon": "✨"
+    },
+    {
+      "type": "markdown",
+      "id": "react-benefits",
+      "title": "Why React Changes Everything",
+      "content": "## React's Superpowers\n\n### 1. **Declarative**\nYou describe **what** the UI should look like, not **how** to build it.\n\n### 2. **Component-Based**\nBuild encapsulated components that manage their own state, then compose them to make complex UIs.\n\n### 3. **Learn Once, Write Anywhere**\nUse React on the web, on mobile with React Native, and even on the server.\n\n### 4. **Virtual DOM**\nReact efficiently updates only what changed, making your app fast."
+    },
+    {
+      "type": "code",
+      "id": "react-example",
+      "title": "The React Way",
+      "content": "// Just update your state\nsetTodos([...todos, newTodo]);\n\n// That's it! React handles the rest.\n// The UI automatically reflects your data.\n\nfunction TodoList({ todos }) {\n  return (\n    <ul>\n      {todos.map(todo => (\n        <li key={todo.id}>{todo.text}</li>\n      ))}\n    </ul>\n  );\n}",
+      "language": "jsx",
+      "showLineNumbers": true,
+      "highlightedLines": [2, 3]
+    },
+    {
+      "type": "callout",
+      "id": "note-component-thinking",
+      "title": "Think in Components",
+      "content": "React encourages you to break your UI into reusable pieces called **components**. A button, a form, a card - each is a component. This makes your code organized and reusable!",
+      "variant": "info",
+      "icon": "🧩"
+    }
+  ],
+  "challenges": [
+    {
+      "id": "challenge-why-react-1",
+      "title": "Identify React Benefits",
+      "description": "Test your understanding of why React exists",
+      "challengeType": "multiple-choice",
+      "question": "Which of these are benefits of using React?",
+      "instructions": "Select ALL correct answers.",
+      "difficulty": "beginner",
+      "estimatedTimeMinutes": 2,
+      "xpReward": 25,
+      "required": true,
+      "allowMultiple": true,
+      "shuffleOptions": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "Automatic UI updates when data changes",
+          "isCorrect": true,
+          "explanation": "Correct! React automatically re-renders when state changes."
+        },
+        {
+          "id": "b",
+          "text": "Faster internet connection",
+          "isCorrect": false,
+          "explanation": "Nope! React doesn't affect your internet speed."
+        },
+        {
+          "id": "c",
+          "text": "Reusable component architecture",
+          "isCorrect": true,
+          "explanation": "Yes! Components are the building blocks of React apps."
+        },
+        {
+          "id": "d",
+          "text": "Declarative UI descriptions",
+          "isCorrect": true,
+          "explanation": "Correct! You describe what the UI should look like."
+        },
+        {
+          "id": "e",
+          "text": "Manual DOM manipulation required",
+          "isCorrect": false,
+          "explanation": "Actually, React handles DOM manipulation for you!"
+        }
+      ],
+      "successFeedback": "Excellent! You understand why React is awesome!",
+      "failureFeedback": "Not quite. Remember: React automates UI updates and uses components.",
+      "hints": {
+        "enabled": true,
+        "maxHints": 3,
+        "hints": [
+          {
+            "id": "hint-1",
+            "text": "Think about what makes React different from vanilla JavaScript.",
+            "order": 1
+          },
+          {
+            "id": "hint-2",
+            "text": "React handles the DOM updates automatically.",
+            "order": 2
+          },
+          {
+            "id": "hint-3",
+            "text": "Components and declarative code are key React concepts.",
+            "order": 3
+          }
+        ],
+        "finalExplanation": "React provides automatic UI updates, reusable components, and declarative syntax. You don't manually manipulate the DOM!"
+      }
+    },
+    {
+      "id": "challenge-why-react-2",
+      "title": "Component Thinking",
+      "description": "Identify good component boundaries",
+      "challengeType": "multiple-choice",
+      "question": "Which of these would make good separate React components?",
+      "instructions": "Select the BEST answer.",
+      "difficulty": "beginner",
+      "estimatedTimeMinutes": 2,
+      "xpReward": 25,
+      "required": true,
+      "allowMultiple": false,
+      "options": [
+        {
+          "id": "a",
+          "text": "Each letter in a word",
+          "isCorrect": false,
+          "explanation": "Too granular! Components should be meaningful UI pieces."
+        },
+        {
+          "id": "b",
+          "text": "Button, Card, Navbar, Form",
+          "isCorrect": true,
+          "explanation": "Perfect! These are reusable, self-contained UI pieces."
+        },
+        {
+          "id": "c",
+          "text": "Every CSS style",
+          "isCorrect": false,
+          "explanation": "Styles aren't components. Components are functional units."
+        },
+        {
+          "id": "d",
+          "text": "The entire page as one component",
+          "isCorrect": false,
+          "explanation": "Too big! Break it down into smaller, reusable pieces."
+        }
+      ],
+      "successFeedback": "Great job! You're thinking in components!",
+      "failureFeedback": "Remember: components should be reusable, self-contained UI pieces.",
+      "hints": {
+        "enabled": true,
+        "hints": [
+          {
+            "id": "hint-1",
+            "text": "Think about what parts of a UI you might reuse.",
+            "order": 1
+          },
+          {
+            "id": "hint-2",
+            "text": "Good components are like LEGO blocks - they snap together!",
+            "order": 2
+          }
+        ],
+        "finalExplanation": "Buttons, cards, navbars, and forms are perfect components because they're reusable and self-contained."
+      }
+    }
+  ],
+  "completionConditions": {
+    "completeAllSections": true,
+    "completeAllChallenges": true,
+    "minAccuracy": 70
+  },
+  "reflectionQuestion": {
+    "question": "Think about a website or app you use frequently. Identify 3-5 components you could break it into. Describe each component and what it would do.",
+    "type": "open-ended",
+    "required": false,
+    "sampleAnswer": "For Twitter: 1) Tweet component - displays a single tweet with text, author, and actions. 2) Feed component - shows a list of tweets. 3) Sidebar component - contains trending topics and suggestions. 4) ComposeTweet component - form to write new tweets. 5) Navbar component - navigation and search."
+  },
+  "nextLessonId": "react-lesson-1-2-first-component",
+  "relatedLessons": ["react-lesson-1-2-first-component"],
+  "resources": [
+    {
+      "title": "React Official Docs - Why React?",
+      "url": "https://react.dev/learn",
+      "type": "documentation",
+      "source": "React Documentation"
+    },
+    {
+      "title": "Thinking in React",
+      "url": "https://react.dev/learn/thinking-in-react",
+      "type": "article",
+      "source": "React Documentation",
+      "estimatedTimeMinutes": 20
+    }
+  ],
+  "tags": ["react", "introduction", "concepts", "why-react"],
+  "keywords": ["react", "components", "declarative", "virtual-dom", "frontend"],
+  "category": "React Fundamentals",
+  "version": "1.0.0",
+  "authors": ["ScribbleCode Curriculum Team"],
+  "reviewers": [],
+  "createdAt": "2024-01-01T00:00:00Z",
+  "updatedAt": "2024-01-15T00:00:00Z"
+}
