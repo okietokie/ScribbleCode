@@ -1,0 +1,253 @@
+{
+  "id": "js-lesson-1-2-data-types",
+  "title": "JavaScript Data Types",
+  "description": "Explore JavaScript's primitive and reference data types. Learn how to work with strings, numbers, booleans, and more.",
+  "longDescription": "JavaScript is dynamically typed, meaning variables can hold any type of value. In this lesson, you'll discover the different data types available in JavaScript and learn when to use each one.",
+  "lessonType": "reading",
+  "difficulty": "beginner",
+  "estimatedTimeMinutes": 12,
+  "learningObjectives": [
+    {
+      "id": "obj-1",
+      "statement": "Identify JavaScript primitive data types",
+      "bloomLevel": "understand",
+      "assessed": true
+    },
+    {
+      "id": "obj-2",
+      "statement": "Create and manipulate strings",
+      "bloomLevel": "apply",
+      "assessed": true
+    },
+    {
+      "id": "obj-3",
+      "statement": "Work with numbers and understand NaN",
+      "bloomLevel": "apply",
+      "assessed": true
+    }
+  ],
+  "rewards": {
+    "xp": {
+      "base": 60,
+      "perfectBonus": 25,
+      "firstAttemptBonus": 15,
+      "minimum": 30,
+      "maximum": 100
+    },
+    "coins": {
+      "base": 20
+    }
+  },
+  "missionNarrative": {
+    "title": "The Data Type Garden",
+    "story": "Beyond the Variable Vault lies a beautiful garden where different types of data bloom like flowers. Each type has its own unique properties. Your task is to learn them all!",
+    "character": "Professor Syntax",
+    "characterAvatar": "/assets/characters/professor-syntax.png"
+  },
+  "sections": [
+    {
+      "type": "text",
+      "id": "intro-text",
+      "title": "Primitive Data Types",
+      "content": "JavaScript has **7 primitive data types** that form the foundation of all your programs:\n\n1. **String** - Text values\n2. **Number** - Numeric values\n3. **Boolean** - True or false\n4. **Null** - Intentional absence of value\n5. **Undefined** - Variable declared but not assigned\n6. **Symbol** - Unique identifiers (advanced)\n7. **BigInt** - Very large integers\n\nLet's explore each one!"
+    },
+    {
+      "type": "code",
+      "id": "example-primitives",
+      "title": "Creating Primitive Values",
+      "content": "// String - text in quotes\nconst greeting = \"Hello, World!\";\nconst name = 'Alice';\nconst template = `Welcome ${name}!`; // Template literal\n\n// Number - integers and decimals\nconst age = 25;\nconst price = 19.99;\nconst negative = -42;\n\n// Boolean - true or false\nconst isActive = true;\nconst hasPermission = false;\n\n// Null - intentional empty value\nlet userData = null;\n\n// Undefined - no value assigned\nlet futureValue; // undefined",
+      "language": "javascript",
+      "showLineNumbers": true,
+      "highlightedLines": [2, 7, 12, 15, 18]
+    },
+    {
+      "type": "callout",
+      "id": "tip-typeof",
+      "title": "Pro Tip",
+      "content": "Use the **typeof** operator to check a value's type:\n\n```javascript\ntypeof \"hello\"  // \"string\"\ntypeof 42       // \"number\"\ntypeof true     // \"boolean\"\ntypeof null     // \"object\" (historical bug!)\ntypeof undefined // \"undefined\"\n```",
+      "variant": "tip",
+      "icon": "💡"
+    },
+    {
+      "type": "markdown",
+      "id": "strings-section",
+      "title": "Working with Strings",
+      "content": "## String Methods\n\nStrings come with many useful built-in methods:\n\n```javascript\nconst text = \"Hello, World!\";\n\ntext.length           // 13\ntext.toUpperCase()    // \"HELLO, WORLD!\"\ntext.toLowerCase()    // \"hello, world!\"\ntext.includes(\"World\") // true\ntext.slice(0, 5)      // \"Hello\"\ntext.split(\", \")       // [\"Hello\", \"World!\"]\n```\n\n## Template Literals\n\nUse backticks (\\`) for string interpolation:\n\n```javascript\nconst name = \"Bob\";\nconst age = 30;\nconst message = `${name} is ${age} years old`;\n// \"Bob is 30 years old\"\n```"
+    },
+    {
+      "type": "code",
+      "id": "numbers-section",
+      "title": "Numbers in JavaScript",
+      "content": "// All numbers are floating-point\nconst integer = 42;\nconst decimal = 3.14159;\n\n// Special numeric values\nconst infinity = Infinity;\nconst notANumber = NaN; // Not a Number\n\n// Common Math operations\nMath.round(3.7);    // 4\nMath.floor(3.7);    // 3\nMath.ceil(3.2);     // 4\nMath.random();      // Random number 0-1\nMath.max(1, 5, 3);  // 5\nMath.min(1, 5, 3);  // 1",
+      "language": "javascript",
+      "showLineNumbers": true
+    },
+    {
+      "type": "callout",
+      "id": "warning-nan",
+      "title": "Watch Out!",
+      "content": "**NaN** (Not a Number) is tricky:\n\n```javascript\n\"hello\" * 5  // NaN\nNaN === NaN  // false! Use isNaN() instead\nisNaN(NaN)   // true\n```\n\nNaN propagates through calculations, so catch errors early!",
+      "variant": "warning",
+      "icon": "⚠️"
+    }
+  ],
+  "challenges": [
+    {
+      "id": "challenge-datatype-1",
+      "title": "Identify the Data Type",
+      "description": "Test your knowledge of JavaScript data types",
+      "challengeType": "multiple-choice",
+      "question": "What is the data type of each value?",
+      "instructions": "Match each value with its correct data type.",
+      "difficulty": "beginner",
+      "estimatedTimeMinutes": 3,
+      "xpReward": 30,
+      "required": true,
+      "allowMultiple": false,
+      "shuffleOptions": true,
+      "options": [
+        {
+          "id": "a",
+          "text": "typeof 42 → number",
+          "isCorrect": true,
+          "explanation": "Correct! 42 is a number."
+        },
+        {
+          "id": "b",
+          "text": "typeof '42' → number",
+          "isCorrect": false,
+          "explanation": "Incorrect! '42' is a string because it's in quotes."
+        },
+        {
+          "id": "c",
+          "text": "typeof true → boolean",
+          "isCorrect": true,
+          "explanation": "Correct! true is a boolean."
+        },
+        {
+          "id": "d",
+          "text": "typeof null → null",
+          "isCorrect": false,
+          "explanation": "Tricky! typeof null returns 'object' due to a historical bug."
+        },
+        {
+          "id": "e",
+          "text": "typeof undefined → undefined",
+          "isCorrect": true,
+          "explanation": "Correct! undefined variables have type 'undefined'."
+        }
+      ],
+      "successFeedback": "Excellent! You've mastered JavaScript data types!",
+      "failureFeedback": "Keep practicing! Remember that values in quotes are strings.",
+      "hints": {
+        "enabled": true,
+        "maxHints": 3,
+        "hints": [
+          {
+            "id": "hint-1",
+            "text": "Values wrapped in quotes are always strings.",
+            "order": 1
+          },
+          {
+            "id": "hint-2",
+            "text": "true and false are the only boolean values.",
+            "order": 2
+          },
+          {
+            "id": "hint-3",
+            "text": "typeof null returning 'object' is a famous JavaScript quirk!",
+            "order": 3
+          }
+        ]
+      }
+    },
+    {
+      "id": "challenge-datatype-2",
+      "title": "String Method Practice",
+      "description": "Apply string methods to transform text",
+      "challengeType": "fill-blank",
+      "question": "Complete the string transformations",
+      "instructions": "Fill in the blanks to achieve the desired result.",
+      "difficulty": "beginner",
+      "estimatedTimeMinutes": 4,
+      "xpReward": 35,
+      "required": true,
+      "content": "const text = \"Hello World\";\n\n// Convert to uppercase\nconst upper = text.{{toUpper}}(); // \"HELLO WORLD\"\n\n// Get the length\nconst len = text.{{length}}; // 11\n\n// Check if it includes \"World\"\nconst hasWorld = text.{{includes}}(\"World\"); // true\n\n// Split into array\nconst parts = text.{{split}}(\" \"); // [\"Hello\", \"World\"]",
+      "answers": [
+        {
+          "placeholder": "toUpper",
+          "acceptableAnswers": ["toUpperCase"],
+          "caseSensitive": false
+        },
+        {
+          "placeholder": "length",
+          "acceptableAnswers": ["length"],
+          "caseSensitive": true
+        },
+        {
+          "placeholder": "includes",
+          "acceptableAnswers": ["includes"],
+          "caseSensitive": true
+        },
+        {
+          "placeholder": "split",
+          "acceptableAnswers": ["split"],
+          "caseSensitive": true
+        }
+      ],
+      "successFeedback": "Perfect! You're becoming a string manipulation expert!",
+      "failureFeedback": "Review the string methods section and try again.",
+      "hints": {
+        "enabled": true,
+        "hints": [
+          {
+            "id": "hint-1",
+            "text": "Method names in JavaScript use camelCase.",
+            "order": 1
+          },
+          {
+            "id": "hint-2",
+            "text": "length is a property, not a method - no parentheses needed!",
+            "order": 2
+          }
+        ]
+      }
+    }
+  ],
+  "completionConditions": {
+    "completeAllSections": true,
+    "completeAllChallenges": true,
+    "minAccuracy": 70
+  },
+  "reflectionQuestion": {
+    "question": "Which data type do you think you'll use most often in your programs? Why?",
+    "type": "open-ended",
+    "required": false,
+    "sampleAnswer": "I think I'll use strings most often because they're essential for displaying messages, working with user input, and manipulating text. Numbers will be close second for calculations."
+  },
+  "nextLessonId": "js-lesson-1-3-type-conversion",
+  "relatedLessons": ["js-lesson-1-1-intro-variables"],
+  "resources": [
+    {
+      "title": "MDN: Data Types",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures",
+      "type": "documentation",
+      "source": "Mozilla Developer Network"
+    },
+    {
+      "title": "JavaScript.info: Data Types",
+      "url": "https://javascript.info/types",
+      "type": "article",
+      "source": "JavaScript.info",
+      "estimatedTimeMinutes": 20
+    }
+  ],
+  "tags": ["data-types", "primitives", "strings", "numbers", "booleans"],
+  "keywords": ["string", "number", "boolean", "null", "undefined", "typeof"],
+  "category": "JavaScript Basics",
+  "version": "1.0.0",
+  "authors": ["Alex Code"],
+  "reviewers": ["Sarah Script"],
+  "createdAt": "2024-01-01T00:00:00Z",
+  "updatedAt": "2024-01-15T00:00:00Z"
+}

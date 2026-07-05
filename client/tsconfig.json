@@ -22,7 +22,8 @@
     
     /* Path aliases */
     "paths": {
-      "@/*": ["./src/app/*"]
+      "@/*": ["./src/app/*"],
+      "@progression-engine/*": ["../src/progression-engine/*"]
     }
   },
   "include": ["src"],

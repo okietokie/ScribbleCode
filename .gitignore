@@ -1,29 +1,35 @@
 ```
-# TypeScript/JavaScript build artifacts
-*.tsbuildinfo
-dist/
-build/
+# Dependencies
 node_modules/
 
-# IDE files
+# Build outputs
+dist/
+build/
+target/
+
+# TypeScript/JavaScript
+*.tsbuildinfo
+.next/
+.nuxt/
+.un~*
+*.js.map
+*.ts.map
+
+# Environment variables
+.env
+.env.local
+*.env.*
+
+# IDE specific
 .vscode/
 .idea/
 *.swp
 *.swo
-
-# Environment
-.env
-.env.local
-*.env.*
 
 # Logs
 *.log
 
 # Coverage
 coverage/
-htmlcov/
-.coverage
-
-# Temporary files
-*.tmp
+.nyc_output/
 ```
