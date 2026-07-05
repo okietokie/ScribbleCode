@@ -1,18 +1,17 @@
 ```
+# Build artifacts
+dist/
+build/
+*.d.ts
+*.js
+*.js.map
+*.d.ts.map
+tsconfig.tsbuildinfo
+
 # Dependencies
 node_modules/
 
-# Build outputs
-dist/
-build/
-target/
-
-# TypeScript
-*.tsbuildinfo
-*.js.map
-*.d.ts
-
-# Environment variables
+# Environment
 .env
 .env.local
 *.env.*
@@ -27,8 +26,4 @@ target/
 # OS
 .DS_Store
 Thumbs.db
-
-# Coverage
-coverage/
-.nyc_output/
 ```
