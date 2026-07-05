@@ -6,8 +6,16 @@ import path from 'path'
 export default defineConfig({
   plugins: [react()],
   resolve: {
-    alias: {
-      '@': path.resolve(__dirname, './src/app'),
-    },
+    alias: [
+      { find: '@', replacement: path.resolve(__dirname, './src/app') },
+      {
+        find: /^@progression-engine\/(.*)$/,
+        replacement: path.resolve(__dirname, '../src/progression-engine/$1'),
+      },
+      {
+        find: '@progression-engine',
+        replacement: path.resolve(__dirname, '../src/progression-engine'),
+      },
+    ],
   },
 })
