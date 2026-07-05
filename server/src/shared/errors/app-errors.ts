@@ -72,3 +72,10 @@ export class AuthenticationError extends AppError {
     this.name = 'AuthenticationError';
   }
 }
+
+export class TooManyRequestsError extends AppError {
+  constructor(message: string = 'Too many requests', details?: Record<string, unknown>) {
+    super(message, 429, 'TOO_MANY_REQUESTS', details);
+    this.name = 'TooManyRequestsError';
+  }
+}
