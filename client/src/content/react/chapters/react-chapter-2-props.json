@@ -1,0 +1,42 @@
+{
+  "id": "react-chapter-2-props",
+  "title": "Props - Passing Data",
+  "description": "Master the art of passing data between components.",
+  "longDescription": "Props are how React components communicate. In this chapter, you'll learn to pass data from parent to child components, destructure props elegantly, render nested content with children, and validate props with PropTypes. These skills will enable you to build flexible, reusable component libraries.",
+  "order": 2,
+  "summary": {
+    "overview": "Learn to pass data between components using props.",
+    "whatYouWillLearn": [
+      "How to pass props to components",
+      "Destructuring props for cleaner code",
+      "Using the children prop for composition",
+      "Validating props with PropTypes"
+    ],
+    "estimatedTotalTimeMinutes": 50
+  },
+  "lessonIds": [
+    "react-lesson-2-1-props-basics",
+    "react-lesson-2-2-props-destructuring",
+    "react-lesson-2-3-children-prop",
+    "react-lesson-2-4-proptypes"
+  ],
+  "completionReward": {
+    "xp": {
+      "base": 200,
+      "perfectBonus": 50,
+      "firstAttemptBonus": 25
+    },
+    "coins": {
+      "base": 75
+    },
+    "achievements": ["react-prop-master"]
+  },
+  "coverImage": "/assets/chapters/react-props-cover.png",
+  "theme": "green",
+  "tags": ["react", "props", "data-flow", "fundamentals"],
+  "keywords": ["props", "properties", "destructuring", "children", "proptypes"],
+  "category": "React Fundamentals",
+  "version": "1.0.0",
+  "createdAt": "2024-01-01T00:00:00Z",
+  "updatedAt": "2024-01-15T00:00:00Z"
+}

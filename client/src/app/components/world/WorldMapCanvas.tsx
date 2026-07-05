@@ -1,9 +1,10 @@
 import { useEffect, useState, useCallback } from 'react';
 import { WorldMap as WorldMapComponent } from './WorldMap';
 import { WorldMap as WorldMapData, WorldMapProgress } from './world-schemas';
+import { worldManager } from '../../services/world/WorldManager';
 
 interface WorldMapCanvasProps {
-  worldId: string;
+  worldId?: string; // Optional - uses active world if not provided
   progress?: WorldMapProgress | null;
   onNodeSelect?: (lessonId: string) => void;
   className?: string;
@@ -14,6 +15,7 @@ interface WorldMapCanvasProps {
  * 
  * Handles loading world data and managing progress state.
  * This is the main entry point for using the World Engine.
+ * Supports multi-world architecture.
  */
 export function WorldMapCanvas({ 
   worldId, 
@@ -24,6 +26,7 @@ export function WorldMapCanvas({
   const [worldMap, setWorldMap] = useState<WorldMapData | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [resolvedWorldId, setResolvedWorldId] = useState<string>('');
 
   // Load world map data
   useEffect(() => {
@@ -32,28 +35,36 @@ export function WorldMapCanvas({
         setIsLoading(true);
         setError(null);
         
-        // Try to load from content directory
-        const response = await fetch(`/src/content/javascript/maps/${worldId}-map.json`);
-        
-        if (!response.ok) {
-          throw new Error(`Failed to load world map: ${response.statusText}`);
+        // Resolve world ID - use provided or active world
+        let targetWorldId = worldId;
+        if (!targetWorldId) {
+          const activeWorld = worldManager.getActiveWorld();
+          targetWorldId = activeWorld?.id || 'js-world-1-basics';
         }
         
-        const data = await response.json();
-        setWorldMap(data);
+        setResolvedWorldId(targetWorldId);
+        
+        // Use WorldManager to load the map
+        const mapData = await worldManager.loadWorldMap(targetWorldId);
+        
+        if (mapData) {
+          setWorldMap(mapData);
+        } else {
+          throw new Error(`Failed to load world map for ${targetWorldId}`);
+        }
       } catch (err) {
         console.error('Error loading world map:', err);
         setError(err instanceof Error ? err.message : 'Unknown error');
         
         // For demo purposes, create a minimal fallback world
-        setWorldMap(createFallbackWorld(worldId));
+        setWorldMap(createFallbackWorld(resolvedWorldId || worldId || 'unknown'));
       } finally {
         setIsLoading(false);
       }
     }
 
     loadWorldMap();
-  }, [worldId]);
+  }, [worldId, resolvedWorldId]);
 
   // Handle node click
   const handleNodeClick = useCallback((node: any) => {

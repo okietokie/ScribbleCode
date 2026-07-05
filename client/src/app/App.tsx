@@ -7,6 +7,7 @@ import AchievementsPage from './pages/AchievementsPage'
 import PlaygroundPage from './pages/PlaygroundPage'
 import ProfilePage from './pages/ProfilePage'
 import SettingsPage from './pages/SettingsPage'
+import DashboardPage from './pages/DashboardPage'
 
 function App() {
   return (
@@ -14,8 +15,9 @@ function App() {
       <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<HomePage />} />
+          <Route path="dashboard" element={<DashboardPage />} />
+          <Route path="map/:worldId?" element={<MapPage />} />
           <Route path="learn" element={<LearnPage />} />
-          <Route path="map" element={<MapPage />} />
           <Route path="achievements" element={<AchievementsPage />} />
           <Route path="playground" element={<PlaygroundPage />} />
           <Route path="profile" element={<ProfilePage />} />

@@ -1,7 +1,10 @@
+import { useParams } from 'react-router-dom';
 import { WorldMapCanvas } from '../components/world/WorldMapCanvas'
 import { useProgressionStore } from '../../app/store/useProgressionStore'
+import { worldManager } from '../../services/world/WorldManager'
 
 export default function MapPage() {
+  const { worldId } = useParams<{ worldId: string }>();
   const { profile, isInitialized, initializePlayer } = useProgressionStore()
 
   // Initialize player on mount (using localStorage ID or generate one)
@@ -17,15 +20,19 @@ export default function MapPage() {
     window.location.href = `/learn?lesson=${lessonId}`
   }
 
+  // Get world title from WorldManager
+  const world = worldId ? worldManager.getWorld(worldId) : worldManager.getActiveWorld();
+  const worldTitle = world?.title || 'Learning World';
+
   return (
     <div className="w-full h-full">
-      <h1 className="text-4xl font-bold mb-6 text-center">JavaScript Forest</h1>
+      <h1 className="text-4xl font-bold mb-6 text-center">{worldTitle}</h1>
       <p className="text-body text-ink/80 text-center mb-4">
-        Explore your learning journey through the magical forest
+        Explore your learning journey through the magical world
       </p>
       <div className="w-full h-[calc(100vh-200px)] border-2 border-ink/20 rounded-lg overflow-hidden bg-paper">
         <WorldMapCanvas
-          worldId="js-world-1-basics"
+          worldId={worldId}
           progress={null}
           onNodeSelect={handleNodeSelect}
           className="w-full h-full"

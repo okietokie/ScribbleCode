@@ -1,15 +1,11 @@
 ```
-# TypeScript/JavaScript build artifacts
-*.tsbuildinfo
+# Build artifacts
+client/dist/
+client/tsconfig.tsbuildinfo
+client/dist/tsconfig.node.tsbuildinfo
 
 # Dependencies
 node_modules/
-
-# IDE files
-.vscode/
-.idea/
-*.swp
-*.swo
 
 # Environment
 .env
@@ -19,13 +15,41 @@ node_modules/
 # Logs
 *.log
 
+# IDE
+.vscode/
+.idea/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Temporary files
+*.tmp
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
 # Coverage
 coverage/
 htmlcov/
 .coverage
 
-# Temp files
-*.tmp
-.DS_Store
-Thumbs.db
+# Testing
+.mypy_cache/
+.pytest_cache/
+
+# Java/Gradle
+target/
+.gradle/
+
+# Distribution / packaging
+dist/
+build/
+*.tar.gz
+*.zip
 ```

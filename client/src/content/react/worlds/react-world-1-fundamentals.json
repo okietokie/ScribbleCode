@@ -1,0 +1,27 @@
+{
+  "id": "react-world-1-fundamentals",
+  "title": "React Fundamentals",
+  "description": "Begin your React journey with components, JSX, and props.",
+  "longDescription": "Welcome to React Realm! In this first world, you'll discover the fundamental building blocks of React applications. You'll learn what components are, how to write JSX, and how to pass data between components using props. By the end of this world, you'll be creating your own reusable component libraries.",
+  "order": 1,
+  "technology": "react",
+  "introduction": {
+    "welcomeMessage": "Welcome to React Realm, young developer!",
+    "lore": "In the land of Scriptoria, a new magic has been discovered - the art of Components! The wise developers have created a realm where code comes to life as interactive doodles. Your journey begins in Component Cove, where you'll learn the ancient spells of JSX and the sacred patterns of Props. Follow the path, defeat the Boss Battles, and earn your place among the React Masters!",
+    "featuredImage": "/assets/worlds/react-fundamentals-intro.png"
+  },
+  "chapterIds": [
+    "react-chapter-1-components",
+    "react-chapter-2-props"
+  ],
+  "totalXPAvailable": 850,
+  "coverImage": "/assets/worlds/react-fundamentals-cover.png",
+  "theme": "blue",
+  "isAvailable": true,
+  "tags": ["react", "fundamentals", "components", "jsx", "props"],
+  "keywords": ["component", "jsx", "props", "react", "frontend", "ui"],
+  "category": "Frontend Framework",
+  "version": "1.0.0",
+  "createdAt": "2024-01-01T00:00:00Z",
+  "updatedAt": "2024-01-15T00:00:00Z"
+}

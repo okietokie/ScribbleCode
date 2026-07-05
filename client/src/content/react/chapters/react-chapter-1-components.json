@@ -1,0 +1,42 @@
+{
+  "id": "react-chapter-1-components",
+  "title": "Welcome to Components",
+  "description": "Learn what React components are and how to create them.",
+  "longDescription": "Components are the building blocks of React applications. In this chapter, you'll discover why React exists, create your first functional components, master JSX syntax, and learn how to render components to the DOM. You'll build a solid foundation for everything that follows in your React journey.",
+  "order": 1,
+  "summary": {
+    "overview": "Master the art of creating React components and writing JSX.",
+    "whatYouWillLearn": [
+      "Why React exists and what problems it solves",
+      "How to create functional components",
+      "JSX syntax rules and best practices",
+      "How to render components to the DOM"
+    ],
+    "estimatedTotalTimeMinutes": 45
+  },
+  "lessonIds": [
+    "react-lesson-1-1-why-react",
+    "react-lesson-1-2-first-component",
+    "react-lesson-1-3-jsx-basics",
+    "react-lesson-1-4-rendering"
+  ],
+  "completionReward": {
+    "xp": {
+      "base": 200,
+      "perfectBonus": 50,
+      "firstAttemptBonus": 25
+    },
+    "coins": {
+      "base": 75
+    },
+    "achievements": ["react-first-component"]
+  },
+  "coverImage": "/assets/chapters/react-components-cover.png",
+  "theme": "blue",
+  "tags": ["react", "components", "jsx", "fundamentals"],
+  "keywords": ["component", "jsx", "render", "function", "react"],
+  "category": "React Fundamentals",
+  "version": "1.0.0",
+  "createdAt": "2024-01-01T00:00:00Z",
+  "updatedAt": "2024-01-15T00:00:00Z"
+}
