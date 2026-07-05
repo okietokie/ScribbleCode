@@ -10,7 +10,6 @@ import {
   World,
   Course,
   Challenge,
-  Section,
   Quiz,
   BossBattle,
 } from '../schemas';
@@ -147,7 +146,7 @@ export const challengeHasChallengeRule: ValidationRule = {
         const sectionType = section.type;
 
         // Some section types are wrappers around challenges
-        const challengeSectionTypes: Section['type'][] = [
+        const challengeSectionTypes: Array<Lesson['sections'][number]['type']> = [
           'multiple-choice',
           'fill-blank',
           'ordering',

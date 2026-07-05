@@ -178,7 +178,7 @@ export function calculateStreakStartDate(streak: StreakData): string {
  */
 export function recoverStreakWithGrace(
   streak: StreakData,
-  recoveryCost: number,
+  _recoveryCost: number,
   canAfford: boolean
 ): { streak: StreakData; success: boolean } {
   if (!canAfford || !streak.gracePeriodRemaining || streak.gracePeriodRemaining <= 0) {
@@ -198,8 +198,6 @@ export function getStreakStatus(streak: StreakData): {
   daysUntilLost: number;
   message: string;
 } {
-  const today = getLocalDateString();
-  
   if (!streak.lastActiveDate) {
     return {
       isActive: false,

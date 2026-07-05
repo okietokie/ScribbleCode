@@ -27,7 +27,7 @@ export const DEFAULT_ACHIEVEMENTS: AchievementDefinition[] = [
     rarity: 'common',
     trigger: {
       type: 'lesson_complete',
-      condition: { count: 1 },
+      condition: { count: 1 } as AchievementTriggerCondition,
     },
     xpReward: 25,
     coinReward: 10,
@@ -42,7 +42,7 @@ export const DEFAULT_ACHIEVEMENTS: AchievementDefinition[] = [
     rarity: 'uncommon',
     trigger: {
       type: 'lesson_complete',
-      condition: { count: 10 },
+      condition: { count: 10 } as AchievementTriggerCondition,
     },
     xpReward: 50,
     coinReward: 25,
@@ -57,7 +57,7 @@ export const DEFAULT_ACHIEVEMENTS: AchievementDefinition[] = [
     rarity: 'rare',
     trigger: {
       type: 'lesson_complete',
-      condition: { count: 50 },
+      condition: { count: 50 } as AchievementTriggerCondition,
     },
     xpReward: 100,
     coinReward: 50,
@@ -72,7 +72,7 @@ export const DEFAULT_ACHIEVEMENTS: AchievementDefinition[] = [
     rarity: 'epic',
     trigger: {
       type: 'lesson_complete',
-      condition: { count: 100 },
+      condition: { count: 100 } as AchievementTriggerCondition,
     },
     xpReward: 250,
     coinReward: 100,
@@ -89,7 +89,7 @@ export const DEFAULT_ACHIEVEMENTS: AchievementDefinition[] = [
     rarity: 'uncommon',
     trigger: {
       type: 'lesson_perfect',
-      condition: { accuracy: 100 },
+      condition: { accuracy: 100 } as AchievementTriggerCondition,
     },
     xpReward: 30,
     coinReward: 15,
@@ -104,7 +104,7 @@ export const DEFAULT_ACHIEVEMENTS: AchievementDefinition[] = [
     rarity: 'uncommon',
     trigger: {
       type: 'lesson_no_hints',
-      condition: { hintsUsed: 0 },
+      condition: { hintsUsed: 0 } as AchievementTriggerCondition,
     },
     xpReward: 25,
     coinReward: 10,
@@ -119,7 +119,7 @@ export const DEFAULT_ACHIEVEMENTS: AchievementDefinition[] = [
     rarity: 'rare',
     trigger: {
       type: 'first_attempt',
-      condition: { count: 10 },
+      condition: { count: 10 } as AchievementTriggerCondition,
     },
     xpReward: 75,
     coinReward: 40,
@@ -136,7 +136,7 @@ export const DEFAULT_ACHIEVEMENTS: AchievementDefinition[] = [
     rarity: 'uncommon',
     trigger: {
       type: 'streak',
-      condition: { days: 7 },
+      condition: { days: 7 } as AchievementTriggerCondition,
     },
     xpReward: 50,
     coinReward: 25,
@@ -151,7 +151,7 @@ export const DEFAULT_ACHIEVEMENTS: AchievementDefinition[] = [
     rarity: 'rare',
     trigger: {
       type: 'streak',
-      condition: { days: 30 },
+      condition: { days: 30 } as AchievementTriggerCondition,
     },
     xpReward: 150,
     coinReward: 75,
@@ -166,7 +166,7 @@ export const DEFAULT_ACHIEVEMENTS: AchievementDefinition[] = [
     rarity: 'legendary',
     trigger: {
       type: 'streak',
-      condition: { days: 365 },
+      condition: { days: 365 } as AchievementTriggerCondition,
     },
     xpReward: 500,
     coinReward: 250,
@@ -183,7 +183,7 @@ export const DEFAULT_ACHIEVEMENTS: AchievementDefinition[] = [
     rarity: 'rare',
     trigger: {
       type: 'lessons_per_day',
-      condition: { count: 5, period: 'day' },
+      condition: { count: 5, period: 'day' } as AchievementTriggerCondition,
     },
     xpReward: 75,
     coinReward: 40,
@@ -200,7 +200,7 @@ export const DEFAULT_ACHIEVEMENTS: AchievementDefinition[] = [
     rarity: 'uncommon',
     trigger: {
       type: 'world_explore',
-      condition: { regionsVisited: 'all' },
+      condition: { regionsVisited: 'all' } as AchievementTriggerCondition,
     },
     xpReward: 40,
     coinReward: 20,
@@ -215,7 +215,7 @@ export const DEFAULT_ACHIEVEMENTS: AchievementDefinition[] = [
     rarity: 'rare',
     trigger: {
       type: 'discovery',
-      condition: { type: 'easter_egg' },
+      condition: { type: 'easter_egg' } as AchievementTriggerCondition,
     },
     xpReward: 100,
     coinReward: 50,

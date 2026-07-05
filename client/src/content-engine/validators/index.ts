@@ -54,11 +54,12 @@ function isDefined<T>(value: T | undefined | null): value is T {
 function validateRequiredString(
   entityId: string,
   entityType: string,
-  obj: Record<string, unknown>,
+  obj: object,
   fieldName: string,
   errors: ValidationError[]
 ): void {
-  if (!isDefined(obj[fieldName]) || typeof obj[fieldName] !== 'string' || (obj[fieldName] as string).trim() === '') {
+  const value = (obj as Record<string, unknown>)[fieldName];
+  if (!isDefined(value) || typeof value !== 'string' || value.trim() === '') {
     errors.push(createError(entityId, entityType, fieldName, `${fieldName} is required and must be a non-empty string`));
   }
 }
@@ -69,12 +70,12 @@ function validateRequiredString(
 function validateRequiredNumber(
   entityId: string,
   entityType: string,
-  obj: Record<string, unknown>,
+  obj: object,
   fieldName: string,
   errors: ValidationError[],
   options: { min?: number; max?: number } = {}
 ): void {
-  const value = obj[fieldName];
+  const value = (obj as Record<string, unknown>)[fieldName];
   if (!isDefined(value) || typeof value !== 'number') {
     errors.push(createError(entityId, entityType, fieldName, `${fieldName} is required and must be a number`));
     return;
@@ -95,12 +96,12 @@ function validateRequiredNumber(
 function validateRequiredArray(
   entityId: string,
   entityType: string,
-  obj: Record<string, unknown>,
+  obj: object,
   fieldName: string,
   errors: ValidationError[],
   options: { minLength?: number; maxLength?: number } = {}
 ): void {
-  const value = obj[fieldName];
+  const value = (obj as Record<string, unknown>)[fieldName];
   if (!Array.isArray(value)) {
     errors.push(createError(entityId, entityType, fieldName, `${fieldName} is required and must be an array`));
     return;
@@ -121,13 +122,13 @@ function validateRequiredArray(
 function validateEnum<T extends string>(
   entityId: string,
   entityType: string,
-  obj: Record<string, unknown>,
+  obj: object,
   fieldName: string,
   allowedValues: T[],
   errors: ValidationError[],
   required: boolean = true
 ): void {
-  const value = obj[fieldName];
+  const value = (obj as Record<string, unknown>)[fieldName];
   
   if (!isDefined(value)) {
     if (required) {
@@ -744,27 +745,10 @@ export function validateAchievement(achievement: Achievement): ValidationResult 
   validateEnum(achievement.id, 'Achievement', achievement, 'category', VALID_ACHIEVEMENT_CATEGORIES, errors);
   validateEnum(achievement.id, 'Achievement', achievement, 'rarity', VALID_ACHIEVEMENT_RARITIES, errors);
   
-  validateRequiredArray(achievement.id, 'Achievement', achievement, 'triggers', errors, { minLength: 1 });
-  
   validateRequiredNumber(achievement.id, 'Achievement', achievement, 'xpReward', errors, { min: 0 });
-  validateRequiredNumber(achievement.id, 'Achievement', achievement, 'sortOrder', errors, { min: 0 });
   
-  if (achievement.triggers) {
-    achievement.triggers.forEach((trigger, i) => {
-      const fieldPath = `triggers[${i}]`;
-      
-      if (!trigger.type) {
-        errors.push(createError(achievement.id, 'Achievement', `${fieldPath}.type`, 'Trigger type is required'));
-      }
-      
-      if (trigger.threshold === undefined) {
-        errors.push(createError(achievement.id, 'Achievement', `${fieldPath}.threshold`, 'Trigger threshold is required'));
-      }
-    });
-  }
-  
-  if (achievement.isHidden && !achievement.hiddenRevealText) {
-    warnings.push(createError(achievement.id, 'Achievement', 'hiddenRevealText', 'Hidden achievement should have reveal text'));
+  if (!achievement.trigger || !achievement.trigger.type) {
+    errors.push(createError(achievement.id, 'Achievement', 'trigger.type', 'Trigger type is required'));
   }
   
   return { isValid: errors.length === 0, errors, warnings };
@@ -784,26 +768,12 @@ export function validateBadge(badge: Badge): ValidationResult {
   validateRequiredString(badge.id, 'Badge', badge, 'id', errors);
   validateRequiredString(badge.id, 'Badge', badge, 'name', errors);
   validateRequiredString(badge.id, 'Badge', badge, 'description', errors);
-  validateRequiredString(badge.id, 'Badge', badge, 'iconUrl', errors);
-  validateRequiredString(badge.id, 'Badge', badge, 'criteria', errors);
+  validateRequiredString(badge.id, 'Badge', badge, 'icon', errors);
   
-  validateRequiredNumber(badge.id, 'Badge', badge, 'xpReward', errors, { min: 0 });
+  if (!badge.requirement || !badge.requirement.type) {
+    errors.push(createError(badge.id, 'Badge', 'requirement.type', 'Requirement type is required'));
+  }
   
   return { isValid: errors.length === 0, errors, warnings };
 }
 
-// ============================================================================
-// EXPORT ALL VALIDATORS
-// ============================================================================
-
-export {
-  validateCourse,
-  validateWorld,
-  validateChapter,
-  validateLesson,
-  validateChallenge,
-  validateQuiz,
-  validateBossBattle,
-  validateAchievement,
-  validateBadge,
-};

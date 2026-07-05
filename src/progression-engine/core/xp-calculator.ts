@@ -25,9 +25,9 @@ export interface XPCalculationInput {
  */
 export function calculateLessonXP(
   input: XPCalculationInput,
-  config: ProgressionEngineConfig = DEFAULT_PROGRESSION_CONFIG
+  _config: ProgressionEngineConfig = DEFAULT_PROGRESSION_CONFIG
 ): XPBreakdown {
-  const { xp: xpConfig } = config;
+  const { xp: xpConfig } = _config;
   const sources: XPSource[] = [];
   const breakdown: string[] = [];
   
@@ -141,9 +141,9 @@ export function calculateChallengeXP(
   baseXP: number,
   attempts: number,
   hintsUsed: number,
-  config: ProgressionEngineConfig = DEFAULT_PROGRESSION_CONFIG
+  _config: ProgressionEngineConfig = DEFAULT_PROGRESSION_CONFIG
 ): number {
-  const { xp: xpConfig } = config;
+  const { xp: xpConfig } = _config;
   
   let xp = baseXP;
   
@@ -167,9 +167,9 @@ export function calculateChallengeXP(
 export function calculateBossBattleXP(
   baseXP: number,
   perfectClear: boolean,
-  config: ProgressionEngineConfig = DEFAULT_PROGRESSION_CONFIG
+  _config: ProgressionEngineConfig = DEFAULT_PROGRESSION_CONFIG
 ): XPBreakdown {
-  const { xp: xpConfig } = config;
+  const { xp: xpConfig } = _config;
   
   const sources: XPSource[] = [
     {
@@ -209,7 +209,7 @@ export function calculateBossBattleXP(
 export function calculateDailyChallengeXP(
   baseXP: number,
   isWeekly: boolean,
-  config: ProgressionEngineConfig = DEFAULT_PROGRESSION_CONFIG
+  _config: ProgressionEngineConfig = DEFAULT_PROGRESSION_CONFIG
 ): XPBreakdown {
   const multiplier = isWeekly ? 3 : 1;
   
@@ -234,9 +234,9 @@ export function getMaxPossibleXP(
   baseLessonXP: number,
   totalChallengeXP: number,
   currentStreak: number,
-  config: ProgressionEngineConfig = DEFAULT_PROGRESSION_CONFIG
+  _config: ProgressionEngineConfig = DEFAULT_PROGRESSION_CONFIG
 ): number {
-  const { xp: xpConfig } = config;
+  const { xp: xpConfig } = _config;
   
   let maxXP = baseLessonXP;
   maxXP += totalChallengeXP * xpConfig.challengeMultiplier;

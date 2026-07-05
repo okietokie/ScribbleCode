@@ -95,10 +95,17 @@ export type AchievementCategory =
 export type AchievementRarity = 'common' | 'uncommon' | 'rare' | 'epic' | 'legendary';
 
 export interface AchievementTriggerCondition {
-  type: string;
+  type?: string;
+  count?: number;
+  accuracy?: number;
+  hintsUsed?: number;
+  days?: number;
+  period?: string;
+  regionsVisited?: string;
   targetValue?: number;
   threshold?: number;
   context?: Record<string, any>;
+  [key: string]: any;
 }
 
 export interface AchievementDefinition {

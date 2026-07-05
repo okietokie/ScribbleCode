@@ -13,10 +13,6 @@ import {
   CoinTransaction,
   EarnedAchievement,
   EarnedBadge,
-  EarnedMilestone,
-  LevelInfo,
-  StreakData,
-  ChallengeProgress,
   ProgressionEngineConfig,
 } from '../types';
 import { DEFAULT_PROGRESSION_CONFIG } from '../types';
@@ -162,7 +158,7 @@ export function recordLessonCompletion(
   newProfile.statistics.totalXP = newTotalXP;
   
   // Calculate level change
-  const levelResult = calculateLevelUp(newProfile.statistics.totalXP - lessonRecord.xpEarned, lessonRecord.xpEarned, config.level);
+  calculateLevelUp(newProfile.statistics.totalXP - lessonRecord.xpEarned, lessonRecord.xpEarned, config.level);
   newProfile.level = calculateLevelFromXP(newTotalXP, config.level);
   newProfile.statistics.currentLevel = newProfile.level.currentLevel;
   
