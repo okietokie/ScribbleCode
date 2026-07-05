@@ -1,35 +1,76 @@
-```
+```gitignore
 # Dependencies
 node_modules/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+.ENV
+.python-version
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+.DS_Store
+Thumbs.db
 
 # Build outputs
 dist/
 build/
-target/
+*.egg-info/
+.eggs/
+.installed.cfg
+lib/
+lib64/
+parts/
+sdist/
+develop-eggs/
+downloads/
+eggs/
+.eggs/
+.eggs/
 
-# TypeScript/JavaScript
-*.tsbuildinfo
-.next/
-.nuxt/
-.un~*
-*.js.map
-*.ts.map
-
-# Environment variables
-.env
-.env.local
-*.env.*
-
-# IDE specific
+# IDE
 .vscode/
 .idea/
 *.swp
 *.swo
+*~
 
-# Logs
-*.log
+# Environment
+.env
+.env.local
+.env.*
+!.env.example
 
-# Coverage
-coverage/
-.nyc_output/
+# Testing
+.coverage
+htmlcov/
+.tox/
+.nox/
+coverage.lcov
+
+# OS
+.DS_Store
+Thumbs.db
+```
+
+Wait, let me reconsider. The only modified file is a TypeScript React component (`client/src/app/pages/MapPage.tsx`). There are no build artifacts, dependency directories, or temporary files in the change list that need to be ignored. This appears to be just a source code file modification.
+
+Since the changes consist only of source/config files without any build artifacts, dependencies, or temp files, the output should be empty.
+
+```gitignore
+
 ```
