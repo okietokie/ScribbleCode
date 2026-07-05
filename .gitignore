@@ -1,76 +1,31 @@
-```gitignore
+```
 # Dependencies
 node_modules/
 
-# Python
-__pycache__/
-*.pyc
-*.pyo
-*.pyd
-.Python
-env/
-venv/
-.venv/
-.ENV
-.python-version
-pip-log.txt
-pip-delete-this-directory.txt
-.tox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-*.log
-.DS_Store
-Thumbs.db
+# Build artifacts
+client/dist/
+client/node_modules/
 
-# Build outputs
-dist/
-build/
-*.egg-info/
-.eggs/
-.installed.cfg
-lib/
-lib64/
-parts/
-sdist/
-develop-eggs/
-downloads/
-eggs/
-.eggs/
-.eggs/
-
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-
-# Environment
+# Environment variables
 .env
 .env.local
-.env.*
-!.env.example
+*.env.*
 
-# Testing
-.coverage
-htmlcov/
-.tox/
-.nox/
-coverage.lcov
+# IDE specific
+.vscode/
+.idea/
 
-# OS
+# Logs
+*.log
+
+# OS generated
 .DS_Store
 Thumbs.db
-```
 
-Wait, let me reconsider. The only modified file is a TypeScript React component (`client/src/app/pages/MapPage.tsx`). There are no build artifacts, dependency directories, or temporary files in the change list that need to be ignored. This appears to be just a source code file modification.
+# Vite specific
+client/.vite/
 
-Since the changes consist only of source/config files without any build artifacts, dependencies, or temp files, the output should be empty.
-
-```gitignore
+# TypeScript build info
+*.tsbuildinfo
 
 ```

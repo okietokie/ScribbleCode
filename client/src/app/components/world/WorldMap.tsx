@@ -23,28 +23,10 @@ interface WorldMapProps {
  */
 export function WorldMap({ worldMap, progress, onNodeClick, className = '' }: WorldMapProps) {
   const engine = useWorldEngine(worldMap, progress);
-  const { nodeStates, regionStates, camera, currentNodeId } = engine;
+  const { nodeStates, camera, currentNodeId } = engine;
   
   const [tooltipData, setTooltipData] = useState<NodeTooltipData | null>(null);
   const [tooltipPosition, setTooltipPosition] = useState({ x: 0, y: 0 });
-  const [containerSize, setContainerSize] = useState({ width: 800, height: 600 });
-  
-  // Handle container resize
-  useEffect(() => {
-    const updateSize = () => {
-      const container = document.getElementById('world-map-container');
-      if (container) {
-        setContainerSize({
-          width: container.clientWidth,
-          height: container.clientHeight
-        });
-      }
-    };
-    
-    updateSize();
-    window.addEventListener('resize', updateSize);
-    return () => window.removeEventListener('resize', updateSize);
-  }, []);
   
   // Focus on current lesson on mount
   useEffect(() => {
@@ -295,7 +277,7 @@ function BossAreaMarker({ boss }: { boss: any }) {
  * Compass overlay component
  */
 function CompassOverlay({ position }: { position: string }) {
-  const positionClasses = {
+  const positionClasses: Record<string, string> = {
     'top-left': 'top-4 left-4',
     'top-right': 'top-4 right-4',
     'bottom-left': 'bottom-4 left-4',
@@ -303,7 +285,7 @@ function CompassOverlay({ position }: { position: string }) {
   };
 
   return (
-    <div className={`absolute z-10 ${positionClasses[position]}`}>
+    <div className={`absolute z-10 ${positionClasses[position] || positionClasses['top-right']}`}>
       <motion.div
         className="w-16 h-16 bg-white/90 backdrop-blur rounded-full shadow-lg flex items-center justify-center border-2 border-amber-600"
         animate={{ rotate: 360 }}

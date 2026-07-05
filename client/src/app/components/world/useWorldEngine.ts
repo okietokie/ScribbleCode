@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
-import { WorldMap, LessonNode, NodeState, Region, WorldMapProgress, NodeProgress } from './world-schemas';
+import { WorldMap, LessonNode, NodeState, Region, WorldMapProgress } from './world-schemas';
 
 /**
  * Hook to compute node states based on progress
@@ -198,7 +198,6 @@ export function useWorldCamera(
  */
 export function useWorldEngine(worldMap: WorldMap, progress: WorldMapProgress | null) {
   const nodeStates = useNodeStates(worldMap.nodes, progress);
-  const regionStates = useRegionStates(worldMap.regions, worldMap.nodes, progress);
   
   const camera = useWorldCamera(
     worldMap.camera.initialZoom,
@@ -227,15 +226,33 @@ export function useWorldEngine(worldMap: WorldMap, progress: WorldMapProgress | 
     return progress.overallCompletion;
   }, [progress]);
   
+  // Helper functions for region states (computed inline)
+  const isRegionUnlocked = useCallback((regionId: string): boolean => {
+    if (!progress) {
+      const firstRegion = worldMap.regions[0];
+      return firstRegion?.id === regionId;
+    }
+    
+    const regionIndex = worldMap.regions.findIndex(r => r.id === regionId);
+    if (regionIndex === 0) return true;
+    
+    const prevRegion = worldMap.regions[regionIndex - 1];
+    if (!prevRegion) return false;
+    
+    const prevRegionProgress = progress.regionsProgress.find(
+      rp => rp.regionId === prevRegion.id
+    );
+    return prevRegionProgress?.isCompleted ?? false;
+  }, [worldMap.regions, progress]);
+  
   return {
     worldMap,
     nodeStates,
-    regionStates,
     camera,
     currentNode,
     currentNodeId,
     overallProgress,
     getNodeState: (nodeId: string) => nodeStates.get(nodeId) || 'locked',
-    isRegionUnlocked: (regionId: string) => regionStates.get(regionId) || false,
+    isRegionUnlocked,
   };
 }
