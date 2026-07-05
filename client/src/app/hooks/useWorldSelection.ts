@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { worldManager } from '../../services/world/WorldManager';
-import { WorldDefinition } from '../../services/world/world-types';
+import { worldManager } from '../services/world/WorldManager';
+import { WorldDefinition } from '../services/world/world-types';
 
 /**
  * Hook for managing world selection state

@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { WorldMapCanvas } from '../components/world/WorldMapCanvas'
 import { useProgressionStore } from '../../app/store/useProgressionStore'
-import { worldManager } from '../../services/world/WorldManager'
+import { worldManager } from '../services/world/WorldManager'
 
 export default function MapPage() {
   const { worldId } = useParams<{ worldId: string }>();
