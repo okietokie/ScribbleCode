@@ -1,7 +1,10 @@
 import { motion } from 'framer-motion';
 import { BookOpen, Code, Sparkles } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 export const NotebookHero = () => {
+  const navigate = useNavigate();
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-paper py-20 px-4 sm:px-6 lg:px-8">
       {/* Background decorative elements */}
@@ -89,6 +92,7 @@ export const NotebookHero = () => {
           <motion.button
             whileHover={{ scale: 1.05, rotate: -1 }}
             whileTap={{ scale: 0.95 }}
+            onClick={() => navigate('/learn')}
             className="btn-primary text-lg px-8 py-4"
           >
             Start Your Adventure
@@ -96,6 +100,7 @@ export const NotebookHero = () => {
           <motion.button
             whileHover={{ scale: 1.05, rotate: 1 }}
             whileTap={{ scale: 0.95 }}
+            onClick={() => navigate('/map')}
             className="btn-secondary text-lg px-8 py-4"
           >
             Explore the World
